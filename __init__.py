@@ -1,4 +1,5 @@
 # coding: utf-8
+# pylint: disable=global-statement, import-error, wrong-import-position, self-assigning-variable, global-at-module-level, broad-exception-raised, global-variable-not-assigned
 """
 Base para desarrollo de modulos externos.
 Para obtener el modulo/Funcion que se esta llamando:
@@ -23,30 +24,31 @@ Para instalar librerias se debe ingresar por terminal a la carpeta "libs"
     pip install <package> -t .
 
 """
+# Rocketbot function and disable pylint warning
+GetParams = GetParams  # pylint: disable=undefined-variable
+GetVar = GetVar  # pylint: disable=undefined-variable
+SetVar = SetVar  # pylint: disable=undefined-variable
+PrintException = PrintException  # pylint: disable=undefined-variable
+tmp_global_obj = tmp_global_obj  # pylint: disable=undefined-variable
+
 import os.path
+import traceback
+import copy
+from time import sleep
+import json
+import time
+import sys
 
 base_path = tmp_global_obj["basepath"]
 cur_path = base_path + "modules" + os.sep + "WindowsControl" + os.sep + "libs" + os.sep
 sys.path.append(cur_path)
 
-global windowScope, ET
-
-from time import sleep
-import time
-from r_uiautomation import uiautomation as auto
-import json
 import xml.etree.ElementTree as ET
-import copy
-import traceback
+from r_uiautomation import uiautomation as auto
 
-try:
-    # import pywinauto as pw
-    """"""
-except:
-    pass
-"""
-    Obtengo el modulo que fueron invocados
-"""
+
+
+global windowScope, ET
 # global module
 module = GetParams("module")
 
@@ -58,45 +60,51 @@ ProcessTime = time.perf_counter  # this returns nearly 0 when first call it if p
 ProcessTime()
 time_delta = 0
 
-
-def getSelector(Selector):
-    command_ = {}
+def getSelector(Selector_):
+    """Convierte el selector de Rocketbot a un selector de pywinauto"""
+    new_command = {}
     try:
-        if type(Selector) == str:
-            Selector = Selector.replace("\\", "\\\\")
-            tmp = json.loads(Selector)
+        if isinstance(Selector_, str):
+            Selector_ = Selector_.replace("\\", "\\\\")
+            tmp = json.loads(Selector_)
         else:
-            tmp = Selector
+            tmp = Selector_
 
         if "handle_" in tmp and len(tmp) == 1:
             print("Only Handle connection")
-            command_["handle"] = tmp["handle_"]
+            new_command["handle"] = tmp["handle_"]
         else:
             if "app" in tmp and len(str(tmp["app"])) > 0:
-                command_["path"] = tmp["app"]
+                new_command["path"] = tmp["app"]
             if "title" in tmp and len(str(tmp["title"])) > 0:
-                command_["Name"] = tmp["title"]
+                new_command["Name"] = tmp["title"]
             if "ctrlId" in tmp and len(str(tmp["ctrlId"])) > 0:
-                command_["AutomationId"] = (int(tmp["ctrlId"]) if tmp["ctrlId"].isdigit() else tmp["ctrlId"])
+                new_command["AutomationId"] = (
+                    int(tmp["ctrlId"]) if tmp["ctrlId"].isdigit() else tmp["ctrlId"]
+                )
             if "class" in tmp and len(str(tmp["class"])) > 0:
-                command_["ClassName"] = tmp["class"]
+                new_command["ClassName"] = tmp["class"]
             if "idx" in tmp and len(str(tmp["idx"])) > 0:
-                command_["ctrl_index"] = int(tmp["idx"]) - 1
-    except Exception as e:
+                new_command["ctrl_index"] = int(tmp["idx"]) - 1
+    except Exception as unknown_ex:
         PrintException()
-        raise Exception("Error on Selector XML or JSON :" + str(e))
+        raise Exception("Error on Selector XML or JSON :" + str(unknown_ex)) from unknown_ex
     # print("command", command_)
-    return command_
+    return new_command
 
 
-def create_control(select, timeout=30, wait=False):
-    # class_name = select["parent"]["cls"]
+def create_control(select, timeout=30, wait=False, only_index=False):
+    """Crea un control de uiautomation a partir de un selector"""
     global ProcessTime, time_delta, get_selectors, find_control_by_index
     start = ProcessTime()
 
     # Creating new scope
     new_scope = None
-    if len(select["children"]) > 1 and select["children"][0]["ctrltype"] == "WindowControl":
+    if (
+        not only_index and
+        len(select["children"]) > 1
+        and select["children"][0]["ctrltype"] == "WindowControl"
+    ):
         s = select["children"][0]
         if "cls" in select["children"][0]:
             s["class"] = select["children"][0]["cls"]
@@ -105,18 +113,14 @@ def create_control(select, timeout=30, wait=False):
         new_scope = windowScope.WindowControl(**selector_win)
         del select["children"][0]
 
-    # if len(select["children"]) > 1 and "idx" in select["children"][-1]:
-    #     parent = select["children"][-2]
-    #     has_parent = True
-    #     position_child = select["children"][-1]["idx"]
-    # else:
-    #     parent = select["children"][-1]
-    #     has_parent = False
 
     parent = select["children"][0]
     arguments = get_selectors(parent)
-    if new_scope:
-        parent_control = new_scope.Control(** arguments)
+    first_valid_child = 0 if only_index else 1
+    if only_index:
+        parent_control = windowScope
+    elif new_scope:
+        parent_control = new_scope.Control(**arguments)
     else:
         parent_control = windowScope.Control(**arguments)
 
@@ -131,21 +135,22 @@ def create_control(select, timeout=30, wait=False):
         if exist_parent:
             time_delta = start + timeout - ProcessTime()
             # print(select)
-            return find_control_by_index(parent_control, select["children"][1:])
+            return find_control_by_index(parent_control, select["children"][first_valid_child:])
             # for i, child in enumerate(parent_control.GetChildren()):
             #     if i == position_child:
             #         return child
 
 
 def find_control_by_index(parent_control, selectors):
+    """Busca un control a partir de un indice"""
     for item in selectors:
         # print(f"Searching by: {get_selectors(item)}")
-        children = parent_control.GetChildren()
-        for i, child in enumerate(children):
-            if i == item["idx"]:
-                parent_control = child
+        children_control = parent_control.GetChildren()
+        for index, child_control in enumerate(children_control):
+            if index == item["idx"]:
+                parent_control = child_control
     return parent_control
-        
+
 
 def get_selectors(parent):
     arguments = {}
@@ -175,12 +180,12 @@ def getChildren(window, Selector):
     if str(Selector).startswith("["):
         da = json.loads(Selector)
     # print("da", da)
-    w = window.child_window(**getSelector(da[0])).wait('visible', timeout=20)
+    w = window.child_window(**getSelector(da[0])).wait("visible", timeout=20)
     # print("DA", da)
     if len(da[1:]) > 0:
         for item in da[1:]:
             try:
-                w = w.child_window(**getSelector(item)).wait('visible', timeout=20)
+                w = w.child_window(**getSelector(item)).wait("visible", timeout=20)
             except Exception as e:
                 print("error w", e)
                 PrintException()
@@ -188,10 +193,22 @@ def getChildren(window, Selector):
     # print("w", w)
     return w
 
+
+def get_position(control, ratioX: float = 0.5, ratioY: float = 0.5):
+    rect = control.BoundingRectangle
+    x = rect.left + int(rect.width() * ratioX)
+    y = rect.top + int(rect.height() * ratioY)
+    return x, y
+
+
 try:
+    # CamelCase notation for common params
+    Selector = GetParams("Selector")
+    OnlyIndex = GetParams("onlyIndex") == "True"
+    selector = None
+
     if module == "WindowScope":
         windowScope = None
-        Selector = GetParams("Selector")
         TimoutMS = GetParams("TimeoutMS")
         var_ = GetParams("result")
         timeout_ = 30
@@ -223,37 +240,36 @@ try:
             print("\x1B[" + "31;40mAn error occurred\x1B[" + "0m")
             PrintException()
             SetVar(var_, False)
-            
-            
+    
+    # If the module is not WindowScope, we need to create a different selector
+    elif module not in ("GetHandle"):
+        if Selector is None or len(str(Selector).strip()) < 1:
+            raise Exception("The field 'Selector' is empty and it is required")
+        try:
+            selector = eval(Selector)
+        except Exception as ex:
+            raise Exception("Error on Selector XML or JSON :" + str(ex)) from ex
+
+        control = create_control(selector, only_index=OnlyIndex)
+
     if module == "Screenshot":
-        Selector = GetParams("Selector")
         path_ = GetParams("path_screenshot")
-        
         try:
             windowScope.SetFocus()
-            selector = eval(Selector)
-            control = create_control(selector)
             control.CaptureToImage(path_)
-            
+
         except Exception as e:
             print("\x1B[" + "31;40mAn error occurred\x1B[" + "0m")
             PrintException()
             raise e
 
     if module == "GetValue":
-        Selector = GetParams("Selector")
         var_ = GetParams("result")
-        # parentControl = GetParams("parentControl")
-        # control_by = GetParams("controlBy")
         timeout_ = 30
-
         try:
             # if not control_by:
             #     control_by = "ctrlid"
-            selector = eval(Selector)
-
             className = selector["parent"]["cls"]
-            control = create_control(selector)
             windowScope.SetFocus()
             try:
                 if control.ControlTypeName == "DataItemControl":
@@ -272,18 +288,15 @@ try:
             raise e
 
     if module == "SetValue":
-        Selector = GetParams("Selector")
         var_ = GetParams("result")
         Text = GetParams("Text")
         clean = GetParams("Clean")
         timeout_ = 30
 
-        try:
-            selector = eval(Selector)
-        except Exception as ex:
-            PrintException()
-
-        if "mozilla" in selector["parent"]["cls"].lower() or "chrome" in selector["parent"]["cls"].lower():
+        if (
+            "mozilla" in selector["parent"]["cls"].lower()
+            or "chrome" in selector["parent"]["cls"].lower()
+        ):
             className = selector["children"][0]["cls"]
         else:
             className = selector["parent"]["cls"]
@@ -315,22 +328,15 @@ try:
             raise e
 
     if module == "SelectItem":
-        Selector = GetParams("Selector")
         var_ = GetParams("result")
         Item = GetParams("Item")
         timeout_ = 30
         result_ = False
-        try:
-            selector = eval(Selector)
-        except Exception as ex:
-            PrintException()
-
 
         try:
             if str(Item).isnumeric():
                 Item = int(Item)
 
-            control = create_control(selector)
             windowScope.SetFocus()
 
             # print(dir(control))
@@ -352,15 +358,12 @@ try:
         button_down = True
         button_up = True
         var_ = GetParams("result")
-        Selector = GetParams("Selector")
         TimoutMS = GetParams("TimeoutMs")
         SimulateClick = GetParams("SimulateClick")
         MouseButton = GetParams("MouseButton")
         ClickType = GetParams("ClickType")
 
         try:
-            # print(Selector, type(json.loads(Selector)))
-            selector = eval(Selector)
 
             if not SimulateClick is None:
                 simulateclick_ = SimulateClick
@@ -375,9 +378,8 @@ try:
 
             if len(str(Selector)) > 1:
                 try:
-                    control = create_control(selector)
                     windowScope.SetFocus()
-                    
+
                     if ClickType != "CLICK_DOUBLE":
                         if MouseButton == "BTN_LEFT":
                             control.Click(simulateMove=simulateclick_, waitTime=0.5)
@@ -398,50 +400,32 @@ try:
             SetVar(var_, False)
             PrintException()
             raise e
-        
+
     if module == "Relative_click":
-        Selector = GetParams("Selector")
         x_coord = int(GetParams("x_coord"))
         y_coord = int(GetParams("y_coord"))
 
-
-        
         try:
-            selector = eval(Selector)
-        except Exception as ex:
-            PrintException() 
-            
-            
-            
-        if len(str(Selector)) > 1:
-                try:
-                    control = create_control(selector)
-                    windowScope.SetFocus()
+            windowScope.SetFocus()
 
-                    # control.MoveCursorToInnerPos(x=x_coord, y=y_coord)
-                    x, y = control.MoveCursorToMyCenter()
-                    
-                    x_coord += x
-                    y_coord += y
-                    
-                    auto.Click(x=x_coord, y=y_coord, waitTime=0.5)
-                    
-                    
-                except Exception as e:
-                    PrintException()
-                    raise e    
+            # control.MoveCursorToInnerPos(x=x_coord, y=y_coord)
+            x, y = control.MoveCursorToMyCenter()
 
+            x_coord += x
+            y_coord += y
+
+            time.sleep(1)
+            auto.Click(x=x_coord, y=y_coord, waitTime=0.5)
+
+        except Exception as e:
+            PrintException()
+            raise e
 
     if module == "waitObject":
-        Selector = GetParams("Selector")
         var_ = GetParams("result")
         type_ = GetParams("type")
         timeout_ = GetParams("TimeoutMS")
         result_ = False
-        try:
-            selector = eval(Selector)
-        except Exception as ex:
-            PrintException()
 
         try:
 
@@ -452,7 +436,7 @@ try:
             auto.TIME_OUT_SECOND = 10
 
             if type_ == "disappears":
-                control = create_control(selector, 5)
+                control = create_control(selector, 5, only_index=OnlyIndex)
                 if time_delta != 0:
                     timeout_ = timeout_ + time_delta - 5
                 if control:
@@ -461,14 +445,14 @@ try:
                 else:
                     result_ = True
             else:
-                control = create_control(selector, timeout_, wait=True)
+                control = create_control(selector, timeout_, wait=True, only_index=OnlyIndex)
                 if time_delta != 0:
                     timeout_ = time_delta
                 try:
                     result_ = control.Exists2(timeout_, 1)
                 except:
                     result_ = control.Exists(timeout_, 1)
-                    
+
             if var_:
                 SetVar(var_, result_)
 
@@ -477,23 +461,20 @@ try:
             PrintException()
 
     if module == "SendKeys":
-        Selector = GetParams("Selector")
         var_ = GetParams("result")
         delay = GetParams("delay")
         Text = GetParams("Text")
         timeout_ = 30
 
         try:
-            try:
-                selector = eval(Selector)
-            except Exception as ex:
-                PrintException()
 
-            if "mozilla" in selector["parent"]["cls"].lower() or "chrome" in selector["parent"]["cls"].lower():
+            if (
+                "mozilla" in selector["parent"]["cls"].lower()
+                or "chrome" in selector["parent"]["cls"].lower()
+            ):
                 className = selector["children"][0]["cls"]
             else:
                 className = selector["parent"]["cls"]
-            control = create_control(selector)
             control.SetFocus()
             sleep(1)
             control.SendKeys(Text)
@@ -506,24 +487,22 @@ try:
             raise e
 
     if module == "Wheel":
-        Selector = GetParams("Selector")
         times = GetParams("times")
         type_ = GetParams("type")
         var_ = GetParams("result")
         timeout_ = 30
 
         try:
-            try:
-                selector = eval(Selector)
-            except Exception as ex:
-                PrintException()
 
             if not times:
                 times = 1
             else:
                 times = int(times)
 
-            if "mozilla" in selector["parent"]["cls"].lower() or "chrome" in selector["parent"]["cls"].lower():
+            if (
+                "mozilla" in selector["parent"]["cls"].lower()
+                or "chrome" in selector["parent"]["cls"].lower()
+            ):
                 className = selector["children"][0]["cls"]
             else:
                 className = selector["parent"]["cls"]
@@ -540,14 +519,11 @@ try:
             raise e
 
     if module == "ExtractTable":
-        Selector = GetParams("Selector")
         var_ = GetParams("result")
         row_index = GetParams("row_index")
         col_index = GetParams("col_index")
         timeout_ = 30
         try:
-
-            selector = eval(Selector)
 
             className = selector["parent"]["cls"]
             control = create_control(selector)
@@ -560,7 +536,7 @@ try:
                         rows.append(cell.GetLegacyIAccessiblePattern().Value)
 
                     currentValue.append(rows)
-                    
+
                 if row_index:
                     currentValue = currentValue[row_index]
                     if col_index:
@@ -568,7 +544,6 @@ try:
                 SetVar(var_, currentValue)
             else:
                 raise Exception("Control type must be TableControl")
-
 
         except Exception as e:
             PrintException()
@@ -583,18 +558,20 @@ try:
         try:
             handleInfo = []
 
-
             def winEnumHandler(hwnd, ctx):
                 global handleInfo
                 if win32gui.IsWindowVisible(hwnd):
                     handleInfo.append((hwnd, win32gui.GetWindowText(hwnd)))
 
-
             win32gui.EnumWindows(winEnumHandler, None)
 
             handle_info = []
             for h in handleInfo:
-                if filter_.startswith("*") and filter_.endswith("*") and filter_[1:-1] in h[1]:
+                if (
+                    filter_.startswith("*")
+                    and filter_.endswith("*")
+                    and filter_[1:-1] in h[1]
+                ):
                     handle_info.append(h)
                 elif filter_.startswith("*") and h[1].endswith(filter_[1:]):
                     handle_info.append(h)
@@ -610,15 +587,8 @@ try:
             raise e
 
     if module == "ReadList":
-        Selector = GetParams("Selector")
         var_ = GetParams("result")
-        timeout_ = 30
         try:
-
-            selector = eval(Selector)
-
-            className = selector["parent"]["cls"]
-            control = create_control(selector)
             windowScope.SetFocus()
             if control.ControlTypeName == "ListControl":
                 currentValue = []
@@ -637,15 +607,11 @@ try:
             raise e
 
     if module == "findChildren":
-        Selector = GetParams("Selector")
         data = GetParams("data")
         find_by = GetParams("findBy")
         result = GetParams("result")
 
         try:
-            selector = eval(Selector)
-
-            control = create_control(selector)
             windowScope.SetFocus()
 
             children = []
@@ -673,16 +639,13 @@ try:
 
     if module == "readCheckbox":
 
-        Selector = GetParams("Selector")
         result = GetParams("result")
         variant = GetParams("variant")
 
         try:
-            selector = eval(Selector)
             if variant is not None:
                 variant = eval(variant)
 
-            control = create_control(selector)
             windowScope.SetFocus()
             if control.ControlTypeName != "CheckBoxControl":
                 raise Exception("Object is not CheckBoxControl")
@@ -691,7 +654,7 @@ try:
                 default_action = control.GetLegacyIAccessiblePattern().DefaultAction
             else:
                 default_action = control.GetLegacyIAccessiblePattern().Value
-            
+
             if result:
                 SetVar(result, default_action)
         except Exception as e:
@@ -699,20 +662,9 @@ try:
             PrintException()
             raise e
 
-
-
-    def get_position(control, ratioX: float = 0.5, ratioY: float = 0.5):
-        rect = control.BoundingRectangle
-        x = rect.left + int(rect.width() * ratioX)
-        y = rect.top + int(rect.height() * ratioY)
-        return x,y
-
     if module == "isEnable":
-        Selector = GetParams("Selector")
         result = GetParams("result")
 
-        selector = eval(Selector)
-        control = create_control(selector)
         windowScope.SetFocus()
 
         isEnabled = control.IsEnabled
@@ -720,7 +672,6 @@ try:
         if result:
             SetVar(result, bool(isEnabled))
 
-    
     if module == "DragAndDrop":
         source_selector = GetParams("source_selector")
         destination_selector = GetParams("destination_selector")
@@ -732,10 +683,10 @@ try:
         source_control = destination_control = None
 
         if source_coordinates:
-            x1,y1 = eval(source_coordinates)
+            x1, y1 = eval(source_coordinates)
 
         if destination_coordinates:
-            x2,y2 = eval(destination_coordinates)
+            x2, y2 = eval(destination_coordinates)
 
         if source_selector:
             source_selector = json.loads(source_selector)
@@ -747,28 +698,21 @@ try:
             destination_control = create_control(destination_selector)
             x2, y2 = get_position(destination_control)
 
-
         windowScope.SetFocus()
         auto.DragDrop(x1, y1, x2, y2)
         SetVar(result, True)
 
     if module == "GetPosition":
-        selector = GetParams("Selector")
         move = GetParams("move")
         result = GetParams("result")
-
-        selector = json.loads("selector")
-        control = create_control(selector)
         if move and move == "True":
-            x, y  = control.MoveCursorToMyCenter(simulateMove=True)
+            x, y = control.MoveCursorToMyCenter(simulateMove=True)
         else:
             x, y = get_position(control)
 
-        
-        SetVar(result, (x,y))
+        SetVar(result, (x, y))
 
 except Exception as e:
-    print("\x1B[" + "31;40mAn error occurred\x1B[" + "0m")
     traceback.print_exc()
     PrintException()
     raise e
