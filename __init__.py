@@ -242,7 +242,7 @@ try:
             SetVar(var_, False)
     
     # If the module is not WindowScope, we need to create a different selector
-    elif module not in ("GetHandle"):
+    elif module not in ("GetHandle", "AdvancedWindowControl"):
         if Selector is None or len(str(Selector).strip()) < 1:
             raise Exception("The field 'Selector' is empty and it is required")
         try:
@@ -712,6 +712,20 @@ try:
 
         SetVar(result, (x, y))
 
+    if module == "AdvancedWindowControl":
+
+        window_name = GetParams("window_name")
+        action = GetParams("action")
+        control = auto.WindowControl(Name=window_name, ControlTypeName="WindowControl")
+        pattern = control.GetWindowPattern()
+        if action == "close":
+            pattern.Close()
+        elif action == "maximize":
+            pattern.SetWindowVisualState(auto.WindowVisualState.Maximized)
+        elif action == "minimize":
+            pattern.SetWindowVisualState(auto.WindowVisualState.Minimized)
+        elif action == "restore":
+            pattern.SetWindowVisualState(auto.WindowVisualState.Normal)
 except Exception as e:
     traceback.print_exc()
     PrintException()
