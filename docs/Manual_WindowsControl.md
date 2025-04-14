@@ -1,185 +1,202 @@
 
+
+
+
 # MS Windows Controls
   
-Module to control MS Windows applications  
+Módulo para controlar aplicaciones de MS Windows. Este módulo es un complemento del Grabador de Escritorio.  
 
 *Read this in other languages: [English](Manual_WindowsControl.md), [Português](Manual_WindowsControl.pr.md), [Español](Manual_WindowsControl.es.md)*
   
 ![banner](imgs/Banner_WindowsControl.png)
-## How to install this module
+## Como instalar este módulo
   
-To install the module in Rocketbot Studio, it can be done in two ways:
-1. Manual: __Download__ the .zip file and unzip it in the modules folder. The folder name must be the same as the module and inside it must have the following files and folders: \__init__.py, package.json, docs, example and libs. If you have the application open, refresh your browser to be able to use the new module.
-2. Automatic: When entering Rocketbot Studio on the right margin you will find the **Addons** section, select **Install Mods**, search for the desired module and press install.  
+Para instalar el módulo en Rocketbot Studio, se puede hacer de dos formas:
+1. Manual: __Descargar__ el archivo .zip y descomprimirlo en la carpeta modules. El nombre de la carpeta debe ser el mismo al del módulo y dentro debe tener los siguientes archivos y carpetas: \__init__.py, package.json, docs, example y libs. Si tiene abierta la aplicación, refresca el navegador para poder utilizar el nuevo modulo.
+2. Automática: Al ingresar a Rocketbot Studio sobre el margen derecho encontrara la sección de **Addons**, seleccionar **Install Mods**, buscar el modulo deseado y presionar install.  
 
 
-## Description of the commands
+## Descripción de los comandos
 
-### WindowScope
+### Conectar Ventana
   
-A container that enables you to attach to an already opened window and perform multiple actions within it. This activity is also automatically generated when using the Desktop recorder. The application that you want to automate should be opened prior to executing the activity.
-|Parameters|Description|example|
+Se conecta a una ventana ya abierta y realizar múltiples acciones dentro de ella. Esta actividad también se genera automáticamente cuando se utiliza la grabadora de escritorio. La aplicación que desea automatizar debe abrirse antes de ejecutar la actividad.
+|Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
-|Selector|Use selector obtained in DesktopRecorder. This selector is a text property used to find a particular UI element when the activity is executed. It is actually a XML or JSON fragment specifying attributes of the GUI element you are looking for and of some of its parents.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
-|Timeout in Seconds|Wait time in seconds before the error is generated|30|
-|Result|Variable where the result will be stored|result|
+|Selector|Utilizar selector obtenido en DesktopRecorder. Este selector es una propiedad de texto utilizada para encontrar un elemento de UI particular cuando se ejecuta la actividad. En realidad, es un fragmento XML o JSON que especifica los atributos del elemento de GUI que está buscando y de algunos de sus padres.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
+|Tiempo de Espera en Segundos|Tiempo de espera en segundos antes de que se genere el error|30|
+|Resultado|Variable donde se almacenará el resultado|resultado|
 
-### Element screenshot
+### Captura de pantalla del elemento
   
-Takes a screenshot of the element and saves it in the specified directory.
-|Parameters|Description|example|
+Realiza una captura de pantalla del elemento y la guarda en el directorio especificado.
+|Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
-|Selector|Use selector obtained in DesktopRecorder. This selector is a text property used to find a particular UI element when the activity is executed. It is actually a XML or JSON fragment specifying attributes of the GUI element you are looking for and of some of its parents.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
-|Screenshot path|Select the name and location where the screenshot will be saved.|C:/Users/Usuario/Desktop/Screenshot|
+|Selector|Utilizar selector obtenido en DesktopRecorder. Este selector es una propiedad de texto utilizada para encontrar un elemento de UI particular cuando se ejecuta la actividad. En realidad, es un fragmento XML o JSON que especifica los atributos del elemento de GUI que está buscando y de algunos de sus padres.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
+|Ruta de la captura|Seleccione el nombre y la ubicación donde se guardará la captura de pantalla tomada.|C:/Users/Usuario/Desktop/Captura|
+|Usar solo Idx|Si se marca esta casilla, se ignorarán las propiedades del selector y se utilizará solo el index o idx para identificar el elemento.|False|
 
 ### Click
   
-Clicks a specified UI element.
-|Parameters|Description|example|
+Hace clic en un elemento UI especificado.
+|Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
-|Selector|Use selector obtained in DesktopRecorder. This selector is a text property used to find a particular UI element when the activity is executed. It is actually a XML or JSON fragment specifying attributes of the GUI element you are looking for and of some of its parents.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
-|Click Type|Specifies the type of mouse click (single, double, up, down) used when simulating the click event. By default, a single click is selected.|CLICK_SIMPLE|
-|Mouse Button|The mouse button (left, right, middle) used for the click action. By default, the left mouse button is selected.|BTN_LEFT|
-|Smulate Click|If selected, it simulates the click by using the technology of the target application. This input method is the fastest and works in the background. By default, this check box is not selected.The default method is the slowest, it cannot work in the background, but it is compatible with all desktop apps.|False|
-|Result|Variable where the result will be stored|result|
+|Selector|Utilizar selector obtenido en DesktopRecorder. Este selector es una propiedad de texto utilizada para encontrar un elemento de UI particular cuando se ejecuta la actividad. En realidad, es un fragmento XML o JSON que especifica los atributos del elemento de GUI que está buscando y de algunos de sus padres.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
+|Tipo de Click|Especifica el tipo de clic del mouse (simple, doble, arriba, abajo) que se usa al simular el evento de clic. Por defecto, se selecciona un solo clic.|CLICK_SIMPLE|
+|Botón de Mouse|El botón del mouse (izquierdo, derecho, medio) utilizado para la acción de clic. Por defecto, el botón izquierdo del ratón está seleccionado.|BTN_IZQUIERDO|
+|Resultado|Variable donde se almacenará el resultado|resultado|
+|Usar solo Idx|Si se marca esta casilla, se ignorarán las propiedades del selector y se utilizará solo el index o idx para identificar el elemento.|False|
+|Simular Click|Si se selecciona, simula el clic utilizando la tecnología de la aplicación de destino. Este método de entrada es el más rápido y funciona en segundo plano. De forma predeterminada, esta casilla de verificación no está seleccionada. El método predeterminado es el más lento, no puede funcionar en segundo plano, pero es compatible con todas las aplicaciones de escritorio.|False|
 
-### Relative click
+### Click relativo
   
-Clicks with coordinates relative to a specified UI element.
-|Parameters|Description|example|
+Hace click con coordenadas relativas a un elemento UI especificado.
+|Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
-|Selector|Use selector obtained in DesktopRecorder. This selector is a text property used to find a particular UI element when the activity is executed. It is actually a XML or JSON fragment specifying attributes of the GUI element you are looking for and of some of its parents.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
-|X Coordinate|X coordinate for where the mouse will move relative to before clicking, from selector ubication|150|
-|Y Coordinate|Y coordinate for where the mouse will move relative to before clicking, from selector ubication|100|
+|Selector|Utilizar selector obtenido en DesktopRecorder. Este selector es una propiedad de texto utilizada para encontrar un elemento de UI particular cuando se ejecuta la actividad. En realidad, es un fragmento XML o JSON que especifica los atributos del elemento de GUI que está buscando y de algunos de sus padres.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
+|Coordenada X|Coordenada X para donde se moverá relativamente el mouse antes de realizar el click, desde la ubicación del selector.|150|
+|Coordenada Y|Coordenada Y para donde se moverá relativamente el mouse antes de realizar el click, desde la ubicación del selector.|100|
+|Usar solo Idx|Si se marca esta casilla, se ignorarán las propiedades del selector y se utilizará solo el index o idx para identificar el elemento.|False|
 
-### Get Text
+### Obtener Texto
   
-Extracts a text value from a specified UI element.
-|Parameters|Description|example|
+Extrae un valor de texto de un elemento de UI especificado.
+|Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
-|Selector|Use selector obtained in DesktopRecorder. This selector is a text property used to find a particular UI element when the activity is executed. It is actually a XML or JSON fragment specifying attributes of the GUI element you are looking for and of some of its parents.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
-|Result|Variable where the result is stored|result|
+|Selector|Utilizar selector obtenido en DesktopRecorder. Este selector es una propiedad de texto utilizada para encontrar un elemento de UI particular cuando se ejecuta la actividad. En realidad, es un fragmento XML o JSON que especifica los atributos del elemento de GUI que está buscando y de algunos de sus padres.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
+|Resultado|Variable donde se almacena el resultado|resultado|
+|Usar solo Idx|Si se marca esta casilla, se ignorarán las propiedades del selector y se utilizará solo el index o idx para identificar el elemento.|False|
 
-### Set Text
+### Enviar Texto
   
-Enables you to write a string to the Text attribute of a specified UI element.
-|Parameters|Description|example|
+Le permite escribir una cadena en el atributo Texto de un elemento de UI especificado.
+|Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
-|Selector|Use selector obtained in DesktopRecorder. This selector is a text property used to find a particular UI element when the activity is executed. It is actually a XML or JSON fragment specifying attributes of the GUI element you are looking for and of some of its parents.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
-|Clean|If selected, delete the previous text to write a new one. By default, the text will be written on a new line.|True|
-|Text|Texto o variable que se vá a escribir en el atributo Text del objeto.|Text|
-|Result|Variable where the result is stored|result|
+|Selector|Utilizar selector obtenido en DesktopRecorder. Este selector es una propiedad de texto utilizada para encontrar un elemento de UI particular cuando se ejecuta la actividad. En realidad, es un fragmento XML o JSON que especifica los atributos del elemento de GUI que está buscando y de algunos de sus padres.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
+|Texto|Texto o variable que se vá a escribir en el atributo Text del objeto.|Texto|
+|Resultado|Variable donde se almacena el resultado|resultado|
+|Limpiar|Si se selecciona, elimina el texto anterior para escribir uno nuevo. Por defecto, el texto se escribirá en una nueva línea.|True|
+|Usar solo Idx|Si se marca esta casilla, se ignorarán las propiedades del selector y se utilizará solo el index o idx para identificar el elemento.|False|
 
-### Send Keys
+### Enviar Tecla
   
-Enables you to write a string to the Text attribute of a specified UI element.
-|Parameters|Description|example|
+Le permite escribir una cadena en el atributo Texto de un elemento de UI especificado.
+|Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
-|Selector|Use selector obtained in DesktopRecorder. This selector is a text property used to find a particular UI element when the activity is executed. It is actually a XML or JSON fragment specifying attributes of the GUI element you are looking for and of some of its parents.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
-|Text|The string or variable that is to be written to the Text attribute of a UI element.|Text|
-|Add delay|Check it if the application write slow|False|
-|Result|Variable where the result is stored|result|
+|Selector|Utilizar selector obtenido en DesktopRecorder. Este selector es una propiedad de texto utilizada para encontrar un elemento de UI particular cuando se ejecuta la actividad. En realidad, es un fragmento XML o JSON que especifica los atributos del elemento de GUI que está buscando y de algunos de sus padres.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
+|Texto|Texto o variable que se vá a escribir en el atributo Text del objeto.|Texto|
+|Resultado|Variable donde se almacena el resultado|resultado|
+|Usar solo Idx|Si se marca esta casilla, se ignorarán las propiedades del selector y se utilizará solo el index o idx para identificar el elemento.|False|
+|Agregar delay|Activar si la aplicación escribe lento|False|
 
 ### ComboBox
   
-Selects an item from a combo box or list box.
-|Parameters|Description|example|
+Seleccione un item desde un Selector o lista de items.
+|Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
-|Selector|Use selector obtained in DesktopRecorder. This selector is a text property used to find a particular UI element when the activity is executed. It is actually a XML or JSON fragment specifying attributes of the GUI element you are looking for and of some of its parents.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
-|Item|Specifies the item to be selected from the combo or list box.|Item|
-|Result|Variable where the result is stored|result|
+|Selector|Utilizar selector obtenido en DesktopRecorder. Este selector es una propiedad de texto utilizada para encontrar un elemento de UI particular cuando se ejecuta la actividad. En realidad, es un fragmento XML o JSON que especifica los atributos del elemento de GUI que está buscando y de algunos de sus padres.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
+|Item|Escriba el nombre del item a seleccionar dentro del Selector o Lista.|Item|
+|Usar solo Idx|Si se marca esta casilla, se ignorarán las propiedades del selector y se utilizará solo el index o idx para identificar el elemento.|False|
+|Resultado|Variable donde se almacena el resultado|resultado|
 
 ### Wheel
   
-Simulate mouse wheel.
-|Parameters|Description|example|
+Simula movimiento de la rueda del mouse
+|Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
-|Selector|Use selector obtained in DesktopRecorder. This selector is a text property used to find a particular UI element when the activity is executed. It is actually a XML or JSON fragment specifying attributes of the GUI element you are looking for and of some of its parents.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
-|Times|Turns that the mouse wheel will make|1|
-|Up or Down|Select whether the movement of the wheel will be up or down.|up|
-|Result|Variable where the result is stored|result|
+|Selector|Utilizar selector obtenido en DesktopRecorder. Este selector es una propiedad de texto utilizada para encontrar un elemento de UI particular cuando se ejecuta la actividad. En realidad, es un fragmento XML o JSON que especifica los atributos del elemento de GUI que está buscando y de algunos de sus padres.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
+|Vueltas|Vueltas que dará la rueda del mouse|1|
+|Up or Down|Seleccionar si el movimiento de la rueda será para arriba o abajo.|up|
+|Resultado|Variable donde se almacena el resultado|resultado|
 
-### Extract Table
+### Extraer tabla
   
-Extract cell values of a table from a specified UI element.
-|Parameters|Description|example|
+Extrae el valor de las celdas de una tabla de un elemento de UI especificado.
+|Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
-|Selector|Use selector obtained in DesktopRecorder. This selector is a text property used to find a particular UI element when the activity is executed. It is actually a XML or JSON fragment specifying attributes of the GUI element you are looking for and of some of its parents.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
-|Row|Row to be extracted|2|
-|Column|Column to be extraxted|3|
-|Result|Variable where the result is stored|result|
+|Selector|Utilizar selector obtenido en DesktopRecorder. Este selector es una propiedad de texto utilizada para encontrar un elemento de UI particular cuando se ejecuta la actividad. En realidad, es un fragmento XML o JSON que especifica los atributos del elemento de GUI que está buscando y de algunos de sus padres.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
+|Fila|Fila que será extraída|2|
+|Columna|Columna que será extraída|3|
+|Resultado|Variable donde se almacena el resultado|resultado|
 
-### Wait object
+### Esperar objeto
   
-Wait for a object on screen
-|Parameters|Description|example|
+Espera la aparición de un objeto en pantalla
+|Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
-|Selector|Selector to wait|{"ctrlid":"NumberPad","cls":"NamedContainerAutomationPeer","title":"Teclado numérico","ctrltype":"GroupControl","idx": 7}|
-|Timeout in Seconds|Tiempo de espera máximo para el selector|30|
-|Wait action|Wait action|-----Select-----|
-|Result|Variable where the result is stored|result|
+|Selector|Selector a esperar|{"ctrlid":"NumberPad","cls":"NamedContainerAutomationPeer","title":"Teclado numérico","ctrltype":"GroupControl","idx": 7}|
+|Tiempo de Espera en Segundos|Maximum waiting time for the selector|30|
+|Acción a esperar|Acción a esperar|-----Select-----|
+|Resultado|Variable donde se almacena el resultado|resultado|
 
-### Get Handle from Open windows
+### Obtener Handle de ventanas abiertas
   
-return and array with name and handle tuple from Open Window
-|Parameters|Description|example|
+Devuelve una lista con tuplas que contienen el nombre y handle de las ventanas abiertas
+|Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
-|Filter|Filter to search the handle|*Notepad|
-|Variable|Variable where the handle will be saved|Variable|
+|Filtro|Filtro para buscar el handle|*Block de notas|
+|Variable|Variable donde se guardará el handle|Variable|
 
-### Read list
+### Leer Lista
   
-Extract cell values of a list from a specified UI element.
-|Parameters|Description|example|
+Extrae el valor de las celdas de una lista de un elemento de UI especificado.
+|Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
-|Selector|Text property used to find a particular UI element when the activity is executed. It is actually a XML or JSON fragment specifying attributes of the GUI element you are looking for and of some of its parents.|{"ctrlid":"NumberPad","cls":"NamedContainerAutomationPeer","title":"Teclado numérico","ctrltype":"GroupControl","idx": 7}|
-|Result|Variable where the result is stored|result|
+|Selector|Propiedad de texto utilizada para encontrar un elemento de UI particular cuando se ejecuta la actividad. En realidad, es un fragmento XML o JSON que especifica los atributos del elemento de GUI que está buscando y de algunos de sus padres.|{"ctrlid":"NumberPad","cls":"NamedContainerAutomationPeer","title":"Teclado numérico","ctrltype":"GroupControl","idx": 7}|
+|Resultado|Variable donde se almacena el resultado|resultado|
 
-### Find child selector by
+### Encontrar selector hijo por
   
-Search all child by any property and return selectors
-|Parameters|Description|example|
+Busca todos los hijos por alguna propiedad y retorna sus selectores.
+|Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
-|Selector|Text property used to find a particular UI element when the activity is executed. It is actually a XML or JSON fragment specifying attributes of the GUI element you are looking for and of some of its parents.|{"ctrlid":"NumberPad","cls":"NamedContainerAutomationPeer","title":"Teclado numérico","ctrltype":"GroupControl","idx": 7}|
-|Data to find|Children data to find|labelClass1|
-|Find by|Selection of where to look for the child selector|ctrlid|
-|Result|Variable where the result is stored|result|
+|Selector|Propiedad de texto utilizada para encontrar un elemento de UI particular cuando se ejecuta la actividad. En realidad, es un fragmento XML o JSON que especifica los atributos del elemento de GUI que está buscando y de algunos de sus padres.|{"ctrlid":"NumberPad","cls":"NamedContainerAutomationPeer","title":"Teclado numérico","ctrltype":"GroupControl","idx": 7}|
+|Data a buscar|Dato hijo a buscar|labelClass1|
+|Buscar por|Seleccion de dónde buscar el selector hijo|ctrlid|
+|Resultado|Variable donde se almacena el resultado|resultado|
 
-### Get CheckBox state
+### Obtener estado de checkbox
   
-Get Default Action State from checkbox
-|Parameters|Description|example|
+Obtiene el Default Action de un checkbox.
+|Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
-|Selector|Text property used to find a particular UI element when the activity is executed. It is actually a XML or JSON fragment specifying attributes of the GUI element you are looking for and of some of its parents.|{"ctrlid":"NumberPad","cls":"NamedContainerAutomationPeer","title":"Teclado numérico","ctrltype":"GroupControl","idx": 7}|
-|Get Value|Checkbox to check only if default option not working well.|False|
-|Result|Variable where the result is stored|result|
+|Selector|Propiedad de texto utilizada para encontrar un elemento de UI particular cuando se ejecuta la actividad. En realidad, es un fragmento XML o JSON que especifica los atributos del elemento de GUI que está buscando y de algunos de sus padres.|{"ctrlid":"NumberPad","cls":"NamedContainerAutomationPeer","title":"Teclado numérico","ctrltype":"GroupControl","idx": 7}|
+|Obtener Valor|Checkbox para marcar solo si la opción por defecto no funciona correctamente|False|
+|Resultado|Variable donde se almacena el resultado|resultado|
 
-### Object is enabled
+### Objeto habilitado
   
-Return True or False if object is enabled
-|Parameters|Description|example|
+Retorna verdadero o falso si el objeto está habilitado
+|Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
-|Selector|Text property used to find a particular UI element when the activity is executed. It is actually a XML or JSON fragment specifying attributes of the GUI element you are looking for and of some of its parents.|{"ctrlid":"NumberPad","cls":"NamedContainerAutomationPeer","title":"Teclado numérico","ctrltype":"GroupControl","idx": 7}|
-|Result|Variable where the result is stored|result|
+|Selector|Propiedad de texto utilizada para encontrar un elemento de UI particular cuando se ejecuta la actividad. En realidad, es un fragmento XML o JSON que especifica los atributos del elemento de GUI que está buscando y de algunos de sus padres.|{"ctrlid":"NumberPad","cls":"NamedContainerAutomationPeer","title":"Teclado numérico","ctrltype":"GroupControl","idx": 7}|
+|Resultado|Variable donde se almacena el resultado|resultado|
 
-### Drag and Drop
+### Agarrar y soltar
   
-Drag and drop an object from coordinates or the object selector, both source and destination
-|Parameters|Description|example|
+Arrastra y suelta un objeto desde coordenadas o el selector del objeto, tanto de origen como destino
+|Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
-|You can select the combination of any of the options. Coordinates and/or selector|||
-|Source Seletor|Use selector obtained in DesktopRecorder. This selector is a text property used to find a particular UI element when the activity is executed. It is actually a XML or JSON fragment specifying attributes of the GUI element you are looking for and of some of its parents.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
-|Destination Seletor|Use selector obtained in DesktopRecorder. This selector is a text property used to find a particular UI element when the activity is executed. It is actually a XML or JSON fragment specifying attributes of the GUI element you are looking for and of some of its parents.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
-|Source coordinate|Coordinates from where it will be dragged|136,200|
-|Destination coordinate|Coordinates to where it will be dragged|500,200|
-|Result|Variable where the result is stored|result|
+|Puedes seleccionar la combinación de cualquiera de las opciones. Coordenadas y/o selector|||
+|Selector de origen|Utilizar selector obtenido en DesktopRecorder. Este selector es una propiedad de texto utilizada para encontrar un elemento de UI particular cuando se ejecuta la actividad. En realidad, es un fragmento XML o JSON que especifica los atributos del elemento de GUI que está buscando y de algunos de sus padres.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
+|Selector de destino|Utilizar selector obtenido en DesktopRecorder. Este selector es una propiedad de texto utilizada para encontrar un elemento de UI particular cuando se ejecuta la actividad. En realidad, es un fragmento XML o JSON que especifica los atributos del elemento de GUI que está buscando y de algunos de sus padres.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
+|Coordenada de origen|Coordenadas desde donde se arrastrará|136,200|
+|Coordenada de destino|Coordenadas hasta donde se arrastrará|500,200|
+|Resultado|Variable donde se almacena el resultado|resultado|
 
-### Get Position
+### Obtener posición
   
-Returns the coordinates of the specified element. You can choose to move the mouse to the position
-|Parameters|Description|example|
+Devuelve las coordenadas del elemento especificado. Puedes elegir mover el mouse a la posición
+|Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
-|Source Seletor|Use selector obtained in DesktopRecorder. This selector is a text property used to find a particular UI element when the activity is executed. It is actually a XML or JSON fragment specifying attributes of the GUI element you are looking for and of some of its parents.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
-|Move mouse to the position|If this checkbox is checked, the mouse will move to the center of the element before returning the position|True|
-|Result|Variable where the result is stored|result|
+|Selector de origen|Utilizar selector obtenido en DesktopRecorder. Este selector es una propiedad de texto utilizada para encontrar un elemento de UI particular cuando se ejecuta la actividad. En realidad, es un fragmento XML o JSON que especifica los atributos del elemento de GUI que está buscando y de algunos de sus padres.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
+|Mover mouse a la posición|Se se marca esta casilla, el mouse se moverá al centro del elemento antes de retornar la posición|True|
+|Resultado|Variable donde se almacena el resultado|resultado|
 
+### Control Avanzado de Ventanas
+  
+Realiza acciones especificas sobre la ventana
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|Nombre de la Ventana|Utilice el nombre de la ventana|Calculadora|
+|Opción|Accion que se desea realizar sobre la ventana|Opción|

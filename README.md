@@ -1,6 +1,10 @@
+
+
+
+
 # MS Windows Controls
   
-Module to control MS Windows applications  
+Module to control MS Windows applications. This module is a complement to the Desktop Recorder.  
 
 *Read this in other languages: [English](README.md), [Português](README.pr.md), [Español](README.es.md)*
 
@@ -66,7 +70,10 @@ Return True or False if object is enabled
 Drag and drop an object from coordinates or the object selector, both source and destination
 
 18. Get Position  
-Returns the coordinates of the specified element. You can choose to move the mouse to the position  
+Returns the coordinates of the specified element. You can choose to move the mouse to the position
+
+19. Advanced Window Control  
+Performs specific actions on the window  
 
 
 

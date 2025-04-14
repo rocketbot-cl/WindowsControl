@@ -1,6 +1,10 @@
+
+
+
+
 # MS Windows Controls
   
-Módulo para controlar aplicaciones de MS Windows  
+Módulo para controlar aplicaciones de MS Windows. Este módulo es un complemento del Grabador de Escritorio.  
 
 *Read this in other languages: [English](README.md), [Português](README.pr.md), [Español](README.es.md)*
 
@@ -66,7 +70,10 @@ Retorna verdadero o falso si el objeto está habilitado
 Arrastra y suelta un objeto desde coordenadas o el selector del objeto, tanto de origen como destino
 
 18. Obtener posición  
-Devuelve las coordenadas del elemento especificado. Puedes elegir mover el mouse a la posición  
+Devuelve las coordenadas del elemento especificado. Puedes elegir mover el mouse a la posición
+
+19. Control Avanzado de Ventanas  
+Realiza acciones especificas sobre la ventana  
 
 
 
