@@ -73,13 +73,17 @@ Arrastra y suelta un objeto desde coordenadas o el selector del objeto, tanto de
 Devuelve las coordenadas del elemento especificado. Puedes elegir mover el mouse a la posición
 
 19. Control Avanzado de Ventanas  
-Realiza acciones especificas sobre la ventana  
+Realiza acciones especificas sobre la ventana
+
+20. Control de clic por index  
+Realiza clic sobre el index especificado  
 
 
 
 ### Changes
 Thu Jun 11 13:14:37 2020  Merge branch master of https://github.com/rocketbot-cl/WindowsControl
-Tue Feb 25 12:31:14 2020  -
+Tue Feb 25 12:31:14 2020
+  -
 Thu Jan 9 14:29:50 2020  Merge branch master of https://github.com/rocketbot-cl/WindowsControl
 
 ----

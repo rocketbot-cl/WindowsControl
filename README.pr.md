@@ -73,13 +73,17 @@ Arraste e solte um objeto das coordenadas ou do seletor de objetos, origem e des
 Retorna as coordenadas do elemento especificado. Você pode escolher mover o mouse para a posição
 
 19. Controle Avançado de Janelas  
-Realiza ações específicas sobre a janela  
+Realiza ações específicas sobre a janela
+
+20. Controle de cliques por índice  
+Clique no índice especificado.  
 
 
 
 ### Changes
 Thu Jun 11 13:14:37 2020  Merge branch master of https://github.com/rocketbot-cl/WindowsControl
-Tue Feb 25 12:31:14 2020  -
+Tue Feb 25 12:31:14 2020
+  -
 Thu Jan 9 14:29:50 2020  Merge branch master of https://github.com/rocketbot-cl/WindowsControl
 
 ----

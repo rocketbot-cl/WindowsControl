@@ -73,13 +73,17 @@ Drag and drop an object from coordinates or the object selector, both source and
 Returns the coordinates of the specified element. You can choose to move the mouse to the position
 
 19. Advanced Window Control  
-Performs specific actions on the window  
+Performs specific actions on the window
+
+20. Click control by index  
+Clic on the specified index.  
 
 
 
 ### Changes
 Thu Jun 11 13:14:37 2020  Merge branch master of https://github.com/rocketbot-cl/WindowsControl
-Tue Feb 25 12:31:14 2020  -
+Tue Feb 25 12:31:14 2020
+  -
 Thu Jan 9 14:29:50 2020  Merge branch master of https://github.com/rocketbot-cl/WindowsControl
 
 ----

@@ -43,12 +43,12 @@ base_path = tmp_global_obj["basepath"]
 cur_path = base_path + "modules" + os.sep + "WindowsControl" + os.sep + "libs" + os.sep
 sys.path.append(cur_path)
 
+global windowScope, ET, find_control_by_index_new
 import xml.etree.ElementTree as ET
 from r_uiautomation import uiautomation as auto
 
 
 
-global windowScope, ET
 # global module
 module = GetParams("module")
 
@@ -152,6 +152,42 @@ def find_control_by_index(parent_control, selectors):
     return parent_control
 
 
+def find_control_by_direct_index(parent_control, index):
+    """Busca un control hijo directo a partir de un indice entero."""
+    return find_control_by_index_new(parent_control, index)
+
+
+def find_control_by_index_new(parent_control, index):
+    """Busca un control hijo directo por indice usando la ventana/parent actual."""
+    if not parent_control:
+        return None
+
+    try:
+        index = int(index)
+    except Exception:
+        return None
+
+    children_control = parent_control.GetChildren()
+    if index < 0 or index >= len(children_control):
+        return None
+    return children_control[index]
+
+
+def find_control_by_index_path(parent_control, index_path):
+    """Busca un control navegando una ruta de indices desde el parent actual."""
+    if not parent_control:
+        return None
+
+    current_control = parent_control
+    for raw_index in index_path:
+        next_control = find_control_by_index_new(current_control, raw_index)
+        if not next_control:
+            return None
+        current_control = next_control
+
+    return current_control
+
+
 def get_selectors(parent):
     arguments = {}
     if "ctrlid" in parent and parent["ctrlid"]:
@@ -242,7 +278,7 @@ try:
             SetVar(var_, False)
     
     # If the module is not WindowScope, we need to create a different selector
-    elif module not in ("GetHandle", "AdvancedWindowControl"):
+    elif module not in ("GetHandle", "AdvancedWindowControl", "clickporIndex"):
         if Selector is None or len(str(Selector).strip()) < 1:
             raise Exception("The field 'Selector' is empty and it is required")
         try:
@@ -726,6 +762,74 @@ try:
             pattern.SetWindowVisualState(auto.WindowVisualState.Minimized)
         elif action == "restore":
             pattern.SetWindowVisualState(auto.WindowVisualState.Normal)
+            
+            
+    if module == "clickporIndex":
+        ir_a_index = GetParams("ir_a_index")
+        texto = GetParams('texto')
+        tecla_enviar = GetParams("tecla_enviar")
+        var_ = GetParams("result")
+
+        try:
+            index_path = None
+            if isinstance(ir_a_index, list):
+                index_path = ir_a_index
+            else:
+                raw_index = str(ir_a_index).strip()
+                if raw_index.startswith("[") and raw_index.endswith("]"):
+                    index_path = json.loads(raw_index)
+                else:
+                    index_path = [int(raw_index)]
+
+            if not isinstance(index_path, list) or len(index_path) == 0:
+                raise Exception("ir_a_index must be an integer or a list of indices")
+
+            index_path = [int(i) for i in index_path]
+
+            if not windowScope:
+                raise Exception("There is no connected window. Run WindowScope before clickbyIndex")
+
+            control = find_control_by_index_path(windowScope, index_path)
+
+            if not control:
+                SetVar(var_, False)
+                raise Exception("The control for the index or index path sent could not be found.")
+
+            windowScope.SetFocus()
+            try:
+                control.SetFocus()
+            except Exception:
+                pass
+
+            try:
+                if hasattr(control, 'Invoke'):
+                    control.Invoke()
+                else:
+                    
+                    control.Click(simulateMove=False, waitTime=0.5)
+            except Exception:
+                
+                rect = control.BoundingRectangle
+                auto.Click(rect.centerX(), rect.centerY())
+
+            if texto:
+                control.SendKeys(texto)
+
+            if tecla_enviar and str(tecla_enviar).strip():
+                tecla = str(tecla_enviar).strip()
+                if not (tecla.startswith("{") and tecla.endswith("}")):
+                    tecla = "{" + tecla + "}"
+                control.SendKeys(tecla)
+
+            SetVar(var_, True)
+        
+        except Exception as e:
+            SetVar(var_, False)
+            PrintException()
+            raise e
+        
+
+            
 except Exception as e:
     traceback.print_exc()
     PrintException()
