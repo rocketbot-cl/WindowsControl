@@ -208,3 +208,13 @@ Realiza clic sobre el index especificado
 | --- | --- | --- |
 |Ir a índice|Utilice el número de índice donde realizara el clic|Indice|
 |Resultado|Variable donde se almacena el resultado|resultado|
+
+### Enviar teclas por index
+  
+Envia teclas a un index especifico.
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|Enviar texto|Enviar texto a un index especifico|Texto|
+|Enviar tecla|Enviar Tecla a un index especifico|Tecla|
+|Ir a índice|Utilice el número de índice donde realizara el clic|Indice|
+|Resultado|Variable donde se almacena el resultado|resultado|

@@ -76,15 +76,13 @@ Retorna as coordenadas do elemento especificado. Você pode escolher mover o mou
 Realiza ações específicas sobre a janela
 
 20. Controle de cliques por índice  
-Clique no índice especificado.  
+Clique no índice especificado.
+
+21. Enviar chaves via índice  
+Enviar chaves para um índice específico..  
 
 
 
-### Changes
-Thu Jun 11 13:14:37 2020  Merge branch master of https://github.com/rocketbot-cl/WindowsControl
-Tue Feb 25 12:31:14 2020
-  -
-Thu Jan 9 14:29:50 2020  Merge branch master of https://github.com/rocketbot-cl/WindowsControl
 
 ----
 ### OS

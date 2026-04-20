@@ -208,3 +208,13 @@ Clic on the specified index.
 | --- | --- | --- |
 |Go to index|Use the index number where you will click|index|
 |Result|Variable where the result is stored|result|
+
+### Send keys via index
+  
+Send keys to a specific index.
+|Parameters|Description|example|
+| --- | --- | --- |
+|Send text|Send text to a specific index.|Text|
+|Send key|Send Key to a specific index|Key|
+|go to index|Use the index number where you will click|index|
+|Result|Variable where the result is stored|result|

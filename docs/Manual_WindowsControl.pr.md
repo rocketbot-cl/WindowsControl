@@ -208,3 +208,13 @@ Clique no índice especificado.
 | --- | --- | --- |
 |Ir para o índice|Use o número do índice no local onde você clicará.|Índice|
 |Resultado|Variável onde o resultado é armazenado|resultado|
+
+### Enviar chaves via índice
+  
+Enviar chaves para um índice específico..
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Enviar mensagem de texto|Enviar texto para um índice específico.|Texto|
+|Enviar chave|Enviar chave para um índice específico|Chave|
+|Ir para o índice|Use o número do índice no local onde você clicará.|Índice|
+|Resultado|Variável onde o resultado é armazenado|resultado|

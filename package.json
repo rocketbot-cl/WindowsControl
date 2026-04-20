@@ -1,13 +1,13 @@
 {
   "author": "David Cuello - Danilo Toro - Nicolas Garcia",
-  "description": "Módulo para controlar aplicaciones de MS Windows",
+  "description": "Module for controlling MS Windows applications",
   "description_lang": {
     "en": "Module to control MS Windows applications. This module is a complement to the Desktop Recorder.",
     "es": "Módulo para controlar aplicaciones de MS Windows. Este módulo es un complemento del Grabador de Escritorio.",
     "pr": "Módulo para controlar aplicativos do MS Windows. Este módulo é um complemento do Gravador de Desktop."
   },
   "disclaimer": "THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-  "version": "7.2.1",
+  "version": "7.3.1",
   "license": "MIT",
   "homepage": "http://rocketbot.com/",
   "linux": false,
@@ -2522,8 +2522,9 @@
             },
             "title": {
               "es": "Ir a índice",
-              "pr": "Ir para o índice",
-              "en": "Go to index"
+              "en": "Go to index",
+              "pr": "Ir para o índice"
+              
             },
             "description": {
               "es": "Utilice el número de índice donde realizara el clic",
@@ -2535,7 +2536,7 @@
               "en": "You can get the window index from the selector.",
               "pr": "Você pode obter o índice da janela a partir do seletor.."
             },
-            "id": "ir_a_index",
+            "id": "go_to_index",
             "css": "col-md-6"
           },
           {
@@ -2569,6 +2570,134 @@
       "video_youtube": "",
       "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggc3R5bGU9ImZpbGw6IzIxOTZGMzsiIGQ9Ik00NjUuNDE0LDM2NS4wNzdsLTIzNC42NjctMTkyYy00LjU2NS0zLjcyMy0xMS4yODUtMy4wNC0xNS4wMDgsMS41MjUNCgljLTEuNTUsMS45MDEtMi4zOTgsNC4yNzgtMi40LDYuNzMxdjMyMGMtMC4wMDUsNC43MDMsMy4wNzIsOC44NTUsNy41NzMsMTAuMjE5YzEuMDAzLDAuMzAyLDIuMDQ2LDAuNDUzLDMuMDkzLDAuNDQ4DQoJYzMuNTY4LTAuMDAyLDYuODk4LTEuNzg3LDguODc1LTQuNzU3TDMxNS4wNTcsMzg0aDE0My42MTZjNS44OTEtMC4wMDcsMTAuNjYxLTQuNzg4LDEwLjY1NC0xMC42NzkNCglDNDY5LjMyMywzNzAuMTI2LDQ2Ny44ODcsMzY3LjEsNDY1LjQxNCwzNjUuMDc3eiIvPg0KPGc+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzQ1NUE2NDsiIGQ9Ik0yMjQuMDA2LDEwNi42NjdjLTUuODkxLDAtMTAuNjY3LTQuNzc2LTEwLjY2Ny0xMC42NjdWMTAuNjY3QzIxMy4zNCw0Ljc3NiwyMTguMTE1LDAsMjI0LjAwNiwwDQoJCWM1Ljg5MSwwLDEwLjY2Nyw0Ljc3NiwxMC42NjcsMTAuNjY3Vjk2QzIzNC42NzMsMTAxLjg5MSwyMjkuODk3LDEwNi42NjcsMjI0LjAwNiwxMDYuNjY3eiIvPg0KCTxwYXRoIHN0eWxlPSJmaWxsOiM0NTVBNjQ7IiBkPSJNMTM4LjY3MywxOTJINTMuMzRjLTUuODkxLDAtMTAuNjY3LTQuNzc2LTEwLjY2Ny0xMC42NjdjMC01Ljg5MSw0Ljc3Ni0xMC42NjcsMTAuNjY3LTEwLjY2N2g4NS4zMzMNCgkJYzUuODkxLDAsMTAuNjY3LDQuNzc2LDEwLjY2NywxMC42NjdDMTQ5LjM0LDE4Ny4yMjQsMTQ0LjU2NCwxOTIsMTM4LjY3MywxOTJ6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzQ1NUE2NDsiIGQ9Ik0zOTQuNjczLDE5MkgzMDkuMzRjLTUuODkxLDAtMTAuNjY3LTQuNzc2LTEwLjY2Ny0xMC42NjdjMC01Ljg5MSw0Ljc3Ni0xMC42NjcsMTAuNjY3LTEwLjY2Nw0KCQloODUuMzMzYzUuODkxLDAsMTAuNjY3LDQuNzc2LDEwLjY2NywxMC42NjdDNDA1LjM0LDE4Ny4yMjQsNDAwLjU2NCwxOTIsMzk0LjY3MywxOTJ6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzQ1NUE2NDsiIGQ9Ik0xNjMuNjc2LDEzMS42NjljLTIuODMxLDAuMDA1LTUuNTQ4LTEuMTE1LTcuNTUyLTMuMTE1TDk1Ljc3Miw2OC4yNjcNCgkJYy00LjE4OS00LjE4OS00LjE4OS0xMC45NzksMC0xNS4xNjhjNC4xODktNC4xODksMTAuOTc5LTQuMTg5LDE1LjE2OCwwbDYwLjI2Nyw2MC4zNTJjNC4xNzEsNC4xNiw0LjE3OSwxMC45MTQsMC4wMTksMTUuMDg1DQoJCWMtMi4wMDYsMi4wMTEtNC43MzEsMy4xMzktNy41NzEsMy4xMzRIMTYzLjY3NnoiLz4NCgk8cGF0aCBzdHlsZT0iZmlsbDojNDU1QTY0OyIgZD0iTTEwMy4zMjQsMzEyLjY4M2MtNS44OTEsMC4wMTEtMTAuNjc1LTQuNzU3LTEwLjY4Ni0xMC42NDhjLTAuMDA1LTIuODQsMS4xMjMtNS41NjUsMy4xMzQtNy41NzENCgkJbDYwLjM1Mi02MC4zNTJjNC4yMzctNC4wOTIsMTAuOTktMy45NzUsMTUuMDgzLDAuMjYyYzMuOTkyLDQuMTM0LDMuOTkyLDEwLjY4NywwLDE0LjgybC02MC4yNjcsNjAuMzczDQoJCUMxMDguOTIsMzExLjU4MywxMDYuMTc3LDMxMi43MDUsMTAzLjMyNCwzMTIuNjgzeiIvPg0KCTxwYXRoIHN0eWxlPSJmaWxsOiM0NTVBNjQ7IiBkPSJNMjg0LjMzNywxMzEuNjY5Yy01Ljg5MSwwLjAxMS0xMC42NzUtNC43NTctMTAuNjg2LTEwLjY0OGMtMC4wMDUtMi44NCwxLjEyMy01LjU2NSwzLjEzNC03LjU3MQ0KCQlsNjAuMjg4LTYwLjM1MmM0LjIzNy00LjA5MywxMC45OS0zLjk3NSwxNS4wODMsMC4yNjJjMy45OTIsNC4xMzQsMy45OTIsMTAuNjg3LDAsMTQuODJsLTYwLjI2Nyw2MC4zNTINCgkJQzI4OS44ODgsMTMwLjU0LDI4Ny4xNzEsMTMxLjY2OSwyODQuMzM3LDEzMS42Njl6Ii8+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==",
       "module": "clickporIndex",
+      "module_name": "WindowsControl",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": false,
+      "windows": true,
+      "mac": false,
+      "docker": false
+    },
+    {
+      "en": {
+        "title": "Send keys via index",
+        "description": "Send keys to a specific index.",
+        "title_options": null,
+        "options": null
+      },
+      "es": {
+        "title": "Enviar teclas por index",
+        "description": "Envia teclas a un index especifico.",
+        "title_options": null,
+        "options": null
+      },
+      "pr": {
+        "title": "Enviar chaves via índice",
+        "description": "Enviar chaves para um índice específico..",
+        "title_options": null,
+        "options": null
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Texto",
+              "en": "Text",
+              "pr": "Texto"
+            },
+            "title": {
+              "es": "Enviar texto",
+              "en": "Send text",
+              "pr": "Enviar mensagem de texto"
+            },
+            "description": {
+              "es": "Enviar texto a un index especifico",
+              "en": "Send text to a specific index.",
+              "pr": "Enviar texto para um índice específico."
+            },
+            "id": "send_text",
+            "css": "col-md-6"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Tecla",
+              "en": "Key",
+              "pr": "Chave"
+            },
+            "title": {
+              "es": "Enviar tecla",
+              "en": "Send key",
+              "pr": "Enviar chave"
+            },
+            "description": {
+              "es": "Enviar Tecla a un index especifico",
+              "en": "Send Key to a specific index",
+              "pr": "Enviar chave para um índice específico"
+            },
+            "id": "send_key",
+            "css": "col-md-6"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Indice",
+              "en": "index",
+              "pr": "Índice"
+            },
+            "title": {
+              "es": "Ir a índice",
+              "pr": "Ir para o índice",
+              "en": "go to index"
+            },
+            "description": {
+              "es": "Utilice el número de índice donde realizara el clic",
+              "en": "Use the index number where you will click",
+              "pr": "Use o número do índice no local onde você clicará."
+            },
+            "help": {
+              "es": "Puede obtener el índice de la ventana desde el selector.",
+              "en": "You can get the window index from the selector.",
+              "pr": "Você pode obter o índice da janela a partir do seletor.."
+            },
+            "id": "go_to_index",
+            "css": "col-md-6"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "resultado",
+              "en": "result",
+              "pr": "resultado"
+            },
+            "title": {
+              "es": "Resultado",
+              "en": "Result",
+              "pr": "Resultado"
+            },
+            "description": {
+              "en": "Variable where the result is stored",
+              "es": "Variable donde se almacena el resultado",
+              "pr": "Variável onde o resultado é armazenado"
+            },
+            "help": {
+              "en": "Variable where the result is stored without {}",
+              "es": "Variable donde se almacena el resultado sin {}",
+              "pr": "Variável onde o resultado é armazenado sem {}"
+            },
+            "remove_vars": true,
+            "id": "result",
+            "css": "col-md-6"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNTEyLjAwMSA1MTIuMDAxIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIuMDAxIDUxMi4wMDE7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIHN0eWxlPSJmaWxsOiNDMkNFQ0U7IiBkPSJNMzc0Ljk5NSw1MTJINi4wMDljLTIuMzM3LDAtNC4yMzMtMS44OTQtNC4yMzMtNC4yMzN2LTUuNDEyYzAtNS4zMjcsNC4zMTgtOS42NDUsOS42NDUtOS42NDUNCgloMzYzLjU3MmM1LjMyNywwLDkuNjQ1LDQuMzE4LDkuNjQ1LDkuNjQ1bDAsMEMzODQuNjM5LDUwNy42ODEsMzgwLjMyLDUxMiwzNzQuOTk1LDUxMnoiLz4NCjxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHSURfMV8iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMTIyLjkzOTMiIHkxPSIzMS42NjkxIiB4Mj0iLTMxLjE1MDciIHkyPSIxODUuNzU5MSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxLjA2NjcgMCAwIC0xLjA2NjcgMy4yNjY2IDU1Ny41MzM2KSI+DQoJPHN0b3AgIG9mZnNldD0iMCIgc3R5bGU9InN0b3AtY29sb3I6I0ZGQ0Y5NSIvPg0KCTxzdG9wICBvZmZzZXQ9IjAuMDU0IiBzdHlsZT0ic3RvcC1jb2xvcjojRkVEMTlBIi8+DQoJPHN0b3AgIG9mZnNldD0iMSIgc3R5bGU9InN0b3AtY29sb3I6I0U4RUZFRSIvPg0KPC9saW5lYXJHcmFkaWVudD4NCjxwYXRoIHN0eWxlPSJmaWxsOnVybCgjU1ZHSURfMV8pOyIgZD0iTTEyMC43MzYsMzkxLjI2NEw3MC40MiwzNDAuOTQ3bC0xNi44NjQsMTYuODY0Yy01LjEwNCw1LjEwNC04Ljk0MSwxMS4zMzQtMTEuMiwxOC4xOQ0KCUwwLjMzNyw1MDMuNDY0Yy0xLjY2OSw1LjA2MiwzLjEzNyw5Ljg2OSw4LjE5OSw4LjE5OWwxMjcuNDYyLTQyLjAxOGM2Ljg1NS0yLjI2LDEzLjA4Ni02LjA5NiwxOC4xOS0xMS4ybDE2Ljg2NC0xNi44NjQNCglMMTIwLjczNiwzOTEuMjY0eiIvPg0KPGxpbmVhckdyYWRpZW50IGlkPSJTVkdJRF8yXyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSI3NS42NzE2IiB5MT0iODIuMjY4OSIgeDI9IjgzLjY3MTYiIHkyPSI1OS44Njg5IiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEuMDY2NyAwIDAgLTEuMDY2NyAzLjI2NjYgNTU3LjUzMzYpIj4NCgk8c3RvcCAgb2Zmc2V0PSIwIiBzdHlsZT0ic3RvcC1jb2xvcjojQzY5QzZEO3N0b3Atb3BhY2l0eTowIi8+DQoJPHN0b3AgIG9mZnNldD0iMSIgc3R5bGU9InN0b3AtY29sb3I6Izc1NEMyNCIvPg0KPC9saW5lYXJHcmFkaWVudD4NCjxwYXRoIHN0eWxlPSJmaWxsOnVybCgjU1ZHSURfMl8pOyIgZD0iTTE1NC4xODksNDM1LjcyMWMtNS4xMDQsNS4xMDQtMTEuMzM0LDguOTQxLTE4LjE5LDExLjJMOC41MzcsNDg4LjkzOQ0KCWMtMS4xOTksMC4zOTUtMi4zOCwwLjQxNy0zLjQ2NywwLjE3bC00LjczMywxNC4zNTVjLTEuNjY5LDUuMDYyLDMuMTM3LDkuODY5LDguMTk5LDguMTk5bDEyNy40NjItNDIuMDE4DQoJYzYuODU1LTIuMjYsMTMuMDg2LTYuMDk2LDE4LjE5LTExLjJsMTYuODY0LTE2Ljg2NGwtMTEuMzYyLTExLjM2MkwxNTQuMTg5LDQzNS43MjF6Ii8+DQo8bGluZWFyR3JhZGllbnQgaWQ9IlNWR0lEXzNfIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjI4Ni41Nzc0IiB5MT0iMjA4LjI4NzEiIHgyPSIyMDMuMDg3NCIgeTI9IjI5MS43NzcxIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEuMDY2NyAwIDAgLTEuMDY2NyAzLjI2NjYgNTU3LjUzMzYpIj4NCgk8c3RvcCAgb2Zmc2V0PSIwIiBzdHlsZT0ic3RvcC1jb2xvcjojRkY5MTAyIi8+DQoJPHN0b3AgIG9mZnNldD0iMSIgc3R5bGU9InN0b3AtY29sb3I6I0ZGQzIwMCIvPg0KPC9saW5lYXJHcmFkaWVudD4NCjxwYXRoIHN0eWxlPSJmaWxsOnVybCgjU1ZHSURfM18pOyIgZD0iTTE1MC45NjMsNDYxLjY3MWM0LjU2Mi00LjU2Miw2Ljg0NC0xMC41NSw2Ljg0NC0xNi41MzljMC01Ljk2My0yLjI4Mi0xMS45NTEtNi44NDQtMTYuNTEzDQoJbC0wLjQ5My0wLjQ5M2MtNS40OTUtNS40OTUtMTMuMDM5LTcuNjc0LTIwLjE2OS02LjU1OWMtMS44NTQsMC4yOTktMy41NzgtMC4zNjMtNC43Ny0xLjU1NWMtMS4xOTMtMS4xOTMtMS44NDEtMi45MDMtMS41NTUtNC43NDMNCgljLTAuMDEzLTAuMDEzLDAtMC4wMjYsMC0wLjAyNmMwLjA3OC0wLjQ2NiwwLjEyOS0wLjkzMywwLjE4MS0xLjRjMC4wMTMtMC4yNDYsMC4wMzgtMC40OCwwLjA1Mi0wLjcyNQ0KCWMwLjAzOC0wLjUwNiwwLjA1Mi0xLjAxMSwwLjA1Mi0xLjUzYzAtNS45NjMtMi4yODItMTEuOTUxLTYuODQ0LTE2LjUxM2wtMC40OTMtMC40OTNjLTAuMjg1LTAuMjg1LTAuNTgzLTAuNTU3LTAuODgxLTAuODMNCgljLTAuMjQ2LTAuMjIxLTAuNTA2LTAuNDUzLTAuNzY1LTAuNjYxYy0wLjQwMi0wLjM1LTAuODE3LTAuNjYxLTEuMjQ1LTAuOTU5Yy0wLjIyMS0wLjE2OS0wLjQ2Ni0wLjMzNy0wLjctMC40OTMNCgljLTAuMzM3LTAuMjM0LTAuNy0wLjQ2Ni0xLjA2Mi0wLjY3NGMtMC4zNS0wLjE5NC0wLjY4Ny0wLjM3NS0xLjAyNC0wLjU1N2MtMC40NTMtMC4yNDYtMC45MDgtMC40NjYtMS4zNjEtMC42NjENCgljLTAuMzc1LTAuMTY5LTAuNzY1LTAuMzI0LTEuMTQtMC40NjdjLTAuMzUtMC4xNDMtMC43MTMtMC4yNzItMS4wODktMC4zODhjLTAuOTIxLTAuMjk5LTEuODY3LTAuNTQ0LTIuODI2LTAuNzI1DQoJYy0wLjQ1My0wLjA5MS0wLjg5NC0wLjE2OS0xLjMzNS0wLjIyMWMtMC40NTMtMC4wNjUtMC45MDgtMC4xMDMtMS4zNDgtMC4xMjljLTAuNDUzLTAuMDM4LTAuODk0LTAuMDY1LTEuMzYxLTAuMDY1DQoJYy0wLjQ1My0wLjAxMy0wLjg5NC0wLjAxMy0xLjMzNSwwLjAxM2MtMC45MjEsMC4wMzgtMS44MDIsMC4xMTYtMi42OTcsMC4yNTljLTEuODU0LDAuMjk5LTMuNTc4LTAuMzYzLTQuNzctMS41NTUNCgljLTEuMTkzLTEuMTkzLTEuODU0LTIuOTE2LTEuNTU1LTQuNzdjMC4xOTQtMS4yMDUsMC4yODUtMi40MzYsMC4yODUtMy42NTVjMC01Ljk2My0yLjI4Mi0xMS45NTEtNi44NDQtMTYuNTEzbC0wLjQ5My0wLjQ5Mw0KCWMtOS4xMjUtOS4xMjUtMjMuOTI3LTkuMTI1LTMzLjA1MiwwTDMzNC42MjUsNzYuNzM4bDEwMC42MzQsMTAwLjYzNEwxNTAuOTYzLDQ2MS42NzF6Ii8+DQo8bGluZWFyR3JhZGllbnQgaWQ9IlNWR0lEXzRfIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjIxMi4wMzU5IiB5MT0iMjkwLjQzNTYiIHgyPSIyNDMuODI1OSIgeTI9IjI1OC42NDU2IiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEuMDY2NyAwIDAgLTEuMDY2NyAzLjI2NjYgNTU3LjUzMzYpIj4NCgk8c3RvcCAgb2Zmc2V0PSIwIiBzdHlsZT0ic3RvcC1jb2xvcjojRkZDRjk1Ii8+DQoJPHN0b3AgIG9mZnNldD0iMC40MjciIHN0eWxlPSJzdG9wLWNvbG9yOiNGRkM5NTQiLz4NCgk8c3RvcCAgb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojRkZDMjAwIi8+DQo8L2xpbmVhckdyYWRpZW50Pg0KPHBhdGggc3R5bGU9ImZpbGw6dXJsKCNTVkdJRF80Xyk7IiBkPSJNNDAxLjcxNywxNDMuODI4TDEyNS41MzIsNDIwLjAxM2MtMS4xOTMtMS4xOTMtMS44NDEtMi45MDMtMS41NTUtNC43NDMNCgljLTAuMDEzLTAuMDEzLDAtMC4wMjYsMC0wLjAyNmMwLjA3OC0wLjQ2NiwwLjEyOS0wLjkzMywwLjE4MS0xLjM5OWMwLjAxMy0wLjI0NiwwLjAzOC0wLjQ4LDAuMDUyLTAuNzI1DQoJYzAuMDM4LTAuNTA2LDAuMDUyLTEuMDExLDAuMDUyLTEuNTNjMC01Ljk2My0yLjI4Mi0xMS45NTEtNi44NDQtMTYuNTEzbC0wLjQ5My0wLjQ5M2MtMC4yODUtMC4yODUtMC41ODMtMC41NTctMC44ODEtMC44Mw0KCWMtMC4yNDYtMC4yMjEtMC41MDYtMC40NTMtMC43NjUtMC42NjFjLTAuNDAyLTAuMzUtMC44MTctMC42NjEtMS4yNDUtMC45NTljLTAuMjM0LTAuMTgxLTAuNDY2LTAuMzM3LTAuNy0wLjQ5Mw0KCWMtMC4zMzctMC4yMzQtMC43LTAuNDY2LTEuMDYyLTAuNjc0Yy0wLjMzNy0wLjE4MS0wLjY3NC0wLjM4OS0xLjAyNC0wLjU1N2MtMC40NTMtMC4yNDYtMC45MDgtMC40NjYtMS4zNjEtMC42NjENCgljLTAuMzc1LTAuMTY5LTAuNzY1LTAuMzI0LTEuMTQtMC40NjdjLTAuMzUtMC4xNDMtMC43MTMtMC4yNzItMS4wODktMC4zODhjLTAuOTIxLTAuMjk5LTEuODY3LTAuNTQ0LTIuODI2LTAuNzI1DQoJYy0wLjQyOC0wLjA5MS0wLjg4MS0wLjE1Ni0xLjMzNS0wLjIyMWMtMC40NDEtMC4wNTItMC44ODEtMC4xMDMtMS4zNDgtMC4xMjljLTAuNDQxLTAuMDUyLTAuODk0LTAuMDY1LTEuMzYxLTAuMDY1DQoJYy0wLjQ1My0wLjAxMy0wLjkwOCwwLTEuMzM1LDAuMDEzYy0wLjkyMSwwLjAzOC0xLjgwMiwwLjExNi0yLjY5NywwLjI1OWMtMS44NTQsMC4yOTktMy41NzgtMC4zNjMtNC43Ny0xLjU1NWwyNzYuMTg1LTI3Ni4xODUNCglMNDAxLjcxNywxNDMuODI4eiIvPg0KPGxpbmVhckdyYWRpZW50IGlkPSJTVkdJRF81XyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIxODcuODk3OSIgeTE9IjMwNi45Njc2IiB4Mj0iMjA4LjUxNzkiIHkyPSIyODYuMzQ3NiIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxLjA2NjcgMCAwIC0xLjA2NjcgMy4yNjY2IDU1Ny41MzM2KSI+DQoJPHN0b3AgIG9mZnNldD0iMCIgc3R5bGU9InN0b3AtY29sb3I6I0ZGQ0Y5NSIvPg0KCTxzdG9wICBvZmZzZXQ9IjAuNDI3IiBzdHlsZT0ic3RvcC1jb2xvcjojRkZDOTU0Ii8+DQoJPHN0b3AgIG9mZnNldD0iMSIgc3R5bGU9InN0b3AtY29sb3I6I0ZGQzIwMCIvPg0KPC9saW5lYXJHcmFkaWVudD4NCjxwYXRoIHN0eWxlPSJmaWxsOnVybCgjU1ZHSURfNV8pOyIgZD0iTTMzNC42MjgsNzYuNzM5TDUwLjMyOSwzNjEuMDM4YzkuMTI1LTkuMTI1LDIzLjkyNy05LjEyNSwzMy4wNTIsMGwwLjQ5MywwLjQ5Mw0KCWM0LjU2Miw0LjU2Miw2Ljg0NCwxMC41NSw2Ljg0NCwxNi41MTNjMCwxLjIxOC0wLjA5MSwyLjQ1LTAuMjg1LDMuNjU1Yy0wLjI5OCwxLjg1NCwwLjM2MywzLjU3OCwxLjU1NSw0Ljc3bDI3Ni4xODUtMjc2LjE4NQ0KCUwzMzQuNjI4LDc2LjczOXoiLz4NCjxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHSURfNl8iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iNDMyLjM0MzgiIHkxPSI0NzguMDk5OCIgeDI9IjM5Ny40MDM4IiB5Mj0iNDQzLjE1MTgiIGdyYWRpZW50VHJhbnNmb3JtPSJtYXRyaXgoMS4wNjY3IDAgMCAtMS4wNjY3IDMuMjY2NiA1NTcuNTMzNikiPg0KCTxzdG9wICBvZmZzZXQ9IjAiIHN0eWxlPSJzdG9wLWNvbG9yOiNENjMzMDUiLz4NCgk8c3RvcCAgb2Zmc2V0PSIwLjM2NiIgc3R5bGU9InN0b3AtY29sb3I6I0NGMzAwNCIvPg0KCTxzdG9wICBvZmZzZXQ9IjAuODk5IiBzdHlsZT0ic3RvcC1jb2xvcjojQkMyNjAyIi8+DQoJPHN0b3AgIG9mZnNldD0iMSIgc3R5bGU9InN0b3AtY29sb3I6I0I3MjQwMSIvPg0KPC9saW5lYXJHcmFkaWVudD4NCjxwYXRoIHN0eWxlPSJmaWxsOnVybCgjU1ZHSURfNl8pOyIgZD0iTTQ2OS42NzEsMTQyLjk2NUwzNjkuMDM1LDQyLjMzbDMxLjUyMy0zMS41MjNjMTQuNDA5LTE0LjQwOSwzNy43NjktMTQuNDA5LDUyLjE3NywwDQoJbDQ4LjQ1OSw0OC40NTljMTQuNDA5LDE0LjQwOSwxNC40MDksMzcuNzY5LDAsNTIuMTc3TDQ2OS42NzEsMTQyLjk2NXoiLz4NCjxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHSURfN18iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iNDYyLjYzMDUiIHkxPSI0MTcuMzAwMiIgeDI9IjQ0NC4yNjA1IiB5Mj0iNDM1LjY2MDIiIGdyYWRpZW50VHJhbnNmb3JtPSJtYXRyaXgoMS4wNjY3IDAgMCAtMS4wNjY3IDMuMjY2NiA1NTcuNTMzNikiPg0KCTxzdG9wICBvZmZzZXQ9IjAiIHN0eWxlPSJzdG9wLWNvbG9yOiM5NjAwMDAiLz4NCgk8c3RvcCAgb2Zmc2V0PSIwLjMzMSIgc3R5bGU9InN0b3AtY29sb3I6IzlDMDcwMDtzdG9wLW9wYWNpdHk6MC42NjkiLz4NCgk8c3RvcCAgb2Zmc2V0PSIwLjgxMiIgc3R5bGU9InN0b3AtY29sb3I6I0FFMUEwMTtzdG9wLW9wYWNpdHk6MC4xODgiLz4NCgk8c3RvcCAgb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojQjcyNDAxO3N0b3Atb3BhY2l0eTowIi8+DQo8L2xpbmVhckdyYWRpZW50Pg0KPHBhdGggc3R5bGU9ImZpbGw6dXJsKCNTVkdJRF83Xyk7IiBkPSJNNDM2LjMwOSwxMDkuNjAzbDMzLjM2MiwzMy4zNjJsMzEuNTI0LTMxLjUyNGMxNC40MDctMTQuNDA3LDE0LjQwNy0zNy43NjcsMC01Mi4xNzYNCglsLTcuMjc1LTcuMjc1TDQzNi4zMDksMTA5LjYwM3oiLz4NCjxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHSURfOF8iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMzkzLjg1OTkiIHkxPSI0MzkuNTk1NiIgeDI9IjM4MS4wOTk5IiB5Mj0iNDI2Ljg0NTYiIGdyYWRpZW50VHJhbnNmb3JtPSJtYXRyaXgoMS4wNjY3IDAgMCAtMS4wNjY3IDMuMjY2NiA1NTcuNTMzNikiPg0KCTxzdG9wICBvZmZzZXQ9IjAiIHN0eWxlPSJzdG9wLWNvbG9yOiNGRkZGRkYiLz4NCgk8c3RvcCAgb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojRThFRkVFIi8+DQo8L2xpbmVhckdyYWRpZW50Pg0KPHBvbHlnb24gc3R5bGU9ImZpbGw6dXJsKCNTVkdJRF84Xyk7IiBwb2ludHM9IjQ3NC4xNywxMzguNDY2IDM3My41MzQsMzcuODMxIDMzNC42MjEsNzYuNzQ0IDQzNS4yNTcsMTc3LjM3OSAiLz4NCjxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHSURfOV8iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMzY3LjUyNzkiIHkxPSI0MTMuMjc3NiIgeDI9IjM1OS4yMTc5IiB5Mj0iNDA0Ljk2NzYiIGdyYWRpZW50VHJhbnNmb3JtPSJtYXRyaXgoMS4wNjY3IDAgMCAtMS4wNjY3IDMuMjY2NiA1NTcuNTMzNikiPg0KCTxzdG9wICBvZmZzZXQ9IjAiIHN0eWxlPSJzdG9wLWNvbG9yOiNGRkZGRkYiLz4NCgk8c3RvcCAgb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojRThFRkVFIi8+DQo8L2xpbmVhckdyYWRpZW50Pg0KPHBvbHlnb24gc3R5bGU9ImZpbGw6dXJsKCNTVkdJRF85Xyk7IiBwb2ludHM9IjQ0OC4yMjgsMTY0LjQwOSAzNDcuNTkyLDYzLjc3MyAzMzQuNjIxLDc2Ljc0NCA0MzUuMjU3LDE3Ny4zNzkgIi8+DQo8bGluZWFyR3JhZGllbnQgaWQ9IlNWR0lEXzEwXyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIzMzkuMjY3NiIgeTE9IjM4NS4wMTc5IiB4Mj0iMzYwLjc0NzciIHkyPSI0MDYuNDk3OSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxLjA2NjcgMCAwIC0xLjA2NjcgMy4yNjY2IDU1Ny41MzM2KSI+DQoJPHN0b3AgIG9mZnNldD0iMCIgc3R5bGU9InN0b3AtY29sb3I6I0ZGQzIwMDtzdG9wLW9wYWNpdHk6MCIvPg0KCTxzdG9wICBvZmZzZXQ9IjAuMjAzIiBzdHlsZT0ic3RvcC1jb2xvcjojRkZCQjAwO3N0b3Atb3BhY2l0eTowLjIwMyIvPg0KCTxzdG9wICBvZmZzZXQ9IjAuNDk5IiBzdHlsZT0ic3RvcC1jb2xvcjojRkZBNzAwO3N0b3Atb3BhY2l0eTowLjQ5OSIvPg0KCTxzdG9wICBvZmZzZXQ9IjAuODUyIiBzdHlsZT0ic3RvcC1jb2xvcjojRkY4ODAwO3N0b3Atb3BhY2l0eTowLjg1MiIvPg0KCTxzdG9wICBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiNGRjc4MDAiLz4NCjwvbGluZWFyR3JhZGllbnQ+DQo8cG9seWdvbiBzdHlsZT0iZmlsbDp1cmwoI1NWR0lEXzEwXyk7IiBwb2ludHM9IjQxOC42MzEsMTk0LjAwNCAzMTcuOTk1LDkzLjM2OSAzMzQuNjIxLDc2Ljc0NCA0MzUuMjU3LDE3Ny4zNzkgIi8+DQo8bGluZWFyR3JhZGllbnQgaWQ9IlNWR0lEXzExXyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIzODEuMjk1NSIgeTE9IjQyNy4wNSIgeDI9IjM3MC4zNTU1IiB5Mj0iNDE2LjEiIGdyYWRpZW50VHJhbnNmb3JtPSJtYXRyaXgoMS4wNjY3IDAgMCAtMS4wNjY3IDMuMjY2NiA1NTcuNTMzNikiPg0KCTxzdG9wICBvZmZzZXQ9IjAiIHN0eWxlPSJzdG9wLWNvbG9yOiNGRkZGRkYiLz4NCgk8c3RvcCAgb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojRThFRkVFIi8+DQo8L2xpbmVhckdyYWRpZW50Pg0KPHBvbHlnb24gc3R5bGU9ImZpbGw6dXJsKCNTVkdJRF8xMV8pOyIgcG9pbnRzPSI0NjEuMTk5LDE1MS40MzcgMzYwLjU2Myw1MC44MDEgMzQ3LjU5Miw2My43NzMgNDQ4LjIyOCwxNjQuNDA5ICIvPg0KPGxpbmVhckdyYWRpZW50IGlkPSJTVkdJRF8xMl8iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMTkuOTIyNiIgeTE9IjY1LjY3MTkiIHgyPSItMC4xMTY0IiB5Mj0iNDUuNjQxOSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxLjA2NjcgMCAwIC0xLjA2NjcgMy4yNjY2IDU1Ny41MzM2KSI+DQoJPHN0b3AgIG9mZnNldD0iMCIgc3R5bGU9InN0b3AtY29sb3I6IzM2M0YzRSIvPg0KCTxzdG9wICBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiMzMDMwMzMiLz4NCjwvbGluZWFyR3JhZGllbnQ+DQo8cGF0aCBzdHlsZT0iZmlsbDp1cmwoI1NWR0lEXzEyXyk7IiBkPSJNMTAuOTgxLDQ3MS4xNzlMMC4zMzksNTAzLjQ2NGMtMS42NjksNS4wNjIsMy4xMzcsOS44NjksOC4xOTksOC4xOTlsMzIuMjg1LTEwLjY0Mg0KCUwxMC45ODEsNDcxLjE3OXoiLz4NCjxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHSURfMTNfIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjQwMy45ODQxIiB5MT0iMzkzLjg4MzkiIHgyPSI0MjguNjU0MSIgeTI9IjM2OS4yMDM5IiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEuMDY2NyAwIDAgLTEuMDY2NyAzLjI2NjYgNTU3LjUzMzYpIj4NCgk8c3RvcCAgb2Zmc2V0PSIwIiBzdHlsZT0ic3RvcC1jb2xvcjojQzJDRUNFO3N0b3Atb3BhY2l0eTowIi8+DQoJPHN0b3AgIG9mZnNldD0iMC4xNzkiIHN0eWxlPSJzdG9wLWNvbG9yOiNBRkJDQkM7c3RvcC1vcGFjaXR5OjAuMTc5Ii8+DQoJPHN0b3AgIG9mZnNldD0iMSIgc3R5bGU9InN0b3AtY29sb3I6IzVCNkE2QSIvPg0KPC9saW5lYXJHcmFkaWVudD4NCjxwb2x5Z29uIHN0eWxlPSJmaWxsOnVybCgjU1ZHSURfMTNfKTsiIHBvaW50cz0iNDc0LjE3LDEzOC40NjYgNDQwLjgwOCwxMDUuMTA0IDQwMS44OTUsMTQ0LjAxNyA0MzUuMjU3LDE3Ny4zNzkgIi8+DQo8bGluZWFyR3JhZGllbnQgaWQ9IlNWR0lEXzE0XyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIzNDYuNTU4NCIgeTE9IjQ1MS4zMDgxIiB4Mj0iMzcxLjIyODQiIHkyPSI0MjYuNjM4MSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxLjA2NjcgMCAwIC0xLjA2NjcgMy4yNjY2IDU1Ny41MzM2KSI+DQoJPHN0b3AgIG9mZnNldD0iMCIgc3R5bGU9InN0b3AtY29sb3I6I0MyQ0VDRTtzdG9wLW9wYWNpdHk6MCIvPg0KCTxzdG9wICBvZmZzZXQ9IjAuNTUiIHN0eWxlPSJzdG9wLWNvbG9yOiNDMkNFQ0UiLz4NCgk8c3RvcCAgb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojQzJDRUNFO3N0b3Atb3BhY2l0eTowIi8+DQo8L2xpbmVhckdyYWRpZW50Pg0KPHBvbHlnb24gc3R5bGU9ImZpbGw6dXJsKCNTVkdJRF8xNF8pOyIgcG9pbnRzPSI0MjMuMTUsODcuNDQ3IDM4OS43ODgsNTQuMDg0IDM1MC44NzUsOTIuOTk3IDM4NC4yMzcsMTI2LjM2ICIvPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPC9zdmc+DQo=",
+      "module": "envioTeclas",
       "module_name": "WindowsControl",
       "visible": true,
       "options": false,

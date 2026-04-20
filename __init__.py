@@ -278,7 +278,7 @@ try:
             SetVar(var_, False)
     
     # If the module is not WindowScope, we need to create a different selector
-    elif module not in ("GetHandle", "AdvancedWindowControl", "clickporIndex"):
+    elif module not in ("GetHandle", "AdvancedWindowControl", "clickporIndex", "envioTeclas", "enviosTeclas"):
         if Selector is None or len(str(Selector).strip()) < 1:
             raise Exception("The field 'Selector' is empty and it is required")
         try:
@@ -765,9 +765,7 @@ try:
             
             
     if module == "clickporIndex":
-        ir_a_index = GetParams("ir_a_index")
-        texto = GetParams('texto')
-        tecla_enviar = GetParams("tecla_enviar")
+        ir_a_index = GetParams("go_to_index")
         var_ = GetParams("result")
 
         try:
@@ -827,8 +825,62 @@ try:
             SetVar(var_, False)
             PrintException()
             raise e
-        
 
+    if module == "envioTeclas":
+        enviar_texto =GetParams("send_text")
+        enviar_tecla = GetParams("send_key")
+        ir_a_index = GetParams("go_to_index")
+        var_ = GetParams("result")
+
+        try:
+            index_path = None
+            if isinstance(ir_a_index, list):
+                index_path = ir_a_index
+            else:
+                raw_index = str(ir_a_index).strip()
+                if raw_index.startswith("[") and raw_index.endswith("]"):
+                    index_path = json.loads(raw_index)
+                else:
+                    index_path = [int(raw_index)]
+
+            if not isinstance(index_path, list) or len(index_path) == 0:
+                raise Exception("go to index must be an integer or a list of indices")
+
+            index_path = [int(i) for i in index_path]
+
+            if not windowScope:
+                raise Exception("There is no connected window. Run WindowScope before envioTeclas")
+
+            control = find_control_by_index_path(windowScope, index_path)
+
+            if not control:
+                SetVar(var_, False)
+                raise Exception("The control for the index or index path sent could not be found.")
+
+            windowScope.SetFocus()
+            try:
+                control.SetFocus()
+            except Exception:
+                pass
+
+            if enviar_texto and str(enviar_texto):
+                control.SendKeys(str(enviar_texto))
+
+            if enviar_tecla and str(enviar_tecla).strip():
+                tecla = str(enviar_tecla).strip()
+                if not (tecla.startswith("{") and tecla.endswith("}")):
+                    tecla = "{" + tecla + "}"
+                control.SendKeys(tecla)
+
+            SetVar(var_, True)
+
+        except Exception as e:
+            SetVar(var_, False)
+            PrintException()
+            raise e
+
+
+    
             
 except Exception as e:
     traceback.print_exc()
