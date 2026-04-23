@@ -75,7 +75,7 @@ Returns the coordinates of the specified element. You can choose to move the mou
 19. Advanced Window Control  
 Performs specific actions on the window
 
-20. Click control by index  
+20. Click by index  
 Clic on the specified index.
 
 21. Send keys via index  

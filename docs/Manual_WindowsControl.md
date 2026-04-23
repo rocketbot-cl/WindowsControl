@@ -201,7 +201,7 @@ Performs specific actions on the window
 |Window Name|Use the window name|Calculator|
 |Action|Action to be performed on the window|Option|
 
-### Click control by index
+### Click by index
   
 Clic on the specified index.
 |Parameters|Description|example|

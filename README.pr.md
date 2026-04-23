@@ -75,7 +75,7 @@ Retorna as coordenadas do elemento especificado. Você pode escolher mover o mou
 19. Controle Avançado de Janelas  
 Realiza ações específicas sobre a janela
 
-20. Controle de cliques por índice  
+20. Clique para indexar  
 Clique no índice especificado.
 
 21. Enviar chaves via índice  

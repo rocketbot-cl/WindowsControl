@@ -278,7 +278,7 @@ try:
             SetVar(var_, False)
     
     # If the module is not WindowScope, we need to create a different selector
-    elif module not in ("GetHandle", "AdvancedWindowControl", "clickporIndex", "envioTeclas", "enviosTeclas"):
+    elif module not in ("GetHandle", "AdvancedWindowControl", "clickbyIndex", "envioTeclas"):
         if Selector is None or len(str(Selector).strip()) < 1:
             raise Exception("The field 'Selector' is empty and it is required")
         try:
@@ -764,7 +764,7 @@ try:
             pattern.SetWindowVisualState(auto.WindowVisualState.Normal)
             
             
-    if module == "clickporIndex":
+    if module == "clickbyIndex":
         ir_a_index = GetParams("go_to_index")
         var_ = GetParams("result")
 
@@ -809,15 +809,6 @@ try:
                 
                 rect = control.BoundingRectangle
                 auto.Click(rect.centerX(), rect.centerY())
-
-            if texto:
-                control.SendKeys(texto)
-
-            if tecla_enviar and str(tecla_enviar).strip():
-                tecla = str(tecla_enviar).strip()
-                if not (tecla.startswith("{") and tecla.endswith("}")):
-                    tecla = "{" + tecla + "}"
-                control.SendKeys(tecla)
 
             SetVar(var_, True)
         
@@ -879,8 +870,6 @@ try:
             PrintException()
             raise e
 
-
-    
             
 except Exception as e:
     traceback.print_exc()

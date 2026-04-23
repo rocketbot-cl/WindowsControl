@@ -201,7 +201,7 @@ Realiza ações específicas sobre a janela
 |Nome da Janela|Use o nome da janela|Calculadora|
 |Opção|Ação a ser realizada na janela|Opção|
 
-### Controle de cliques por índice
+### Clique para indexar
   
 Clique no índice especificado.
 |Parâmetros|Descrição|exemplo|

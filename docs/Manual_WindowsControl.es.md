@@ -201,7 +201,7 @@ Realiza acciones especificas sobre la ventana
 |Nombre de la Ventana|Utilice el nombre de la ventana|Calculadora|
 |Opción|Accion que se desea realizar sobre la ventana|Opción|
 
-### Control de clic por index
+### Clic por index
   
 Realiza clic sobre el index especificado
 |Parámetros|Descripción|ejemplo|

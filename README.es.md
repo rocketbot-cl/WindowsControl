@@ -75,7 +75,7 @@ Devuelve las coordenadas del elemento especificado. Puedes elegir mover el mouse
 19. Control Avanzado de Ventanas  
 Realiza acciones especificas sobre la ventana
 
-20. Control de clic por index  
+20. Clic por index  
 Realiza clic sobre el index especificado
 
 21. Enviar teclas por index  
