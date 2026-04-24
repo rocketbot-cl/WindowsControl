@@ -1,7 +1,10 @@
 
+
+
+
 # MS Windows Controls
   
-Module to control MS Windows applications  
+Module to control MS Windows applications. This module is a complement to the Desktop Recorder.  
 
 *Read this in other languages: [English](Manual_WindowsControl.md), [Português](Manual_WindowsControl.pr.md), [Español](Manual_WindowsControl.es.md)*
   
@@ -31,6 +34,7 @@ Takes a screenshot of the element and saves it in the specified directory.
 | --- | --- | --- |
 |Selector|Use selector obtained in DesktopRecorder. This selector is a text property used to find a particular UI element when the activity is executed. It is actually a XML or JSON fragment specifying attributes of the GUI element you are looking for and of some of its parents.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
 |Screenshot path|Select the name and location where the screenshot will be saved.|C:/Users/Usuario/Desktop/Screenshot|
+|Use only Idx|If this box is checked, the selector properties will be ignored and only the index or idx will be used to identify the element.|False|
 
 ### Click
   
@@ -40,8 +44,9 @@ Clicks a specified UI element.
 |Selector|Use selector obtained in DesktopRecorder. This selector is a text property used to find a particular UI element when the activity is executed. It is actually a XML or JSON fragment specifying attributes of the GUI element you are looking for and of some of its parents.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
 |Click Type|Specifies the type of mouse click (single, double, up, down) used when simulating the click event. By default, a single click is selected.|CLICK_SIMPLE|
 |Mouse Button|The mouse button (left, right, middle) used for the click action. By default, the left mouse button is selected.|BTN_LEFT|
-|Smulate Click|If selected, it simulates the click by using the technology of the target application. This input method is the fastest and works in the background. By default, this check box is not selected.The default method is the slowest, it cannot work in the background, but it is compatible with all desktop apps.|False|
 |Result|Variable where the result will be stored|result|
+|Use only Idx|If this box is checked, the selector properties will be ignored and only the index or idx will be used to identify the element.|False|
+|Smulate Click|If selected, it simulates the click by using the technology of the target application. This input method is the fastest and works in the background. By default, this check box is not selected.The default method is the slowest, it cannot work in the background, but it is compatible with all desktop apps.|False|
 
 ### Relative click
   
@@ -51,6 +56,7 @@ Clicks with coordinates relative to a specified UI element.
 |Selector|Use selector obtained in DesktopRecorder. This selector is a text property used to find a particular UI element when the activity is executed. It is actually a XML or JSON fragment specifying attributes of the GUI element you are looking for and of some of its parents.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
 |X Coordinate|X coordinate for where the mouse will move relative to before clicking, from selector ubication|150|
 |Y Coordinate|Y coordinate for where the mouse will move relative to before clicking, from selector ubication|100|
+|Use only Idx|If this box is checked, the selector properties will be ignored and only the index or idx will be used to identify the element.|False|
 
 ### Get Text
   
@@ -59,6 +65,7 @@ Extracts a text value from a specified UI element.
 | --- | --- | --- |
 |Selector|Use selector obtained in DesktopRecorder. This selector is a text property used to find a particular UI element when the activity is executed. It is actually a XML or JSON fragment specifying attributes of the GUI element you are looking for and of some of its parents.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
 |Result|Variable where the result is stored|result|
+|Use only Idx|If this box is checked, the selector properties will be ignored and only the index or idx will be used to identify the element.|False|
 
 ### Set Text
   
@@ -66,9 +73,10 @@ Enables you to write a string to the Text attribute of a specified UI element.
 |Parameters|Description|example|
 | --- | --- | --- |
 |Selector|Use selector obtained in DesktopRecorder. This selector is a text property used to find a particular UI element when the activity is executed. It is actually a XML or JSON fragment specifying attributes of the GUI element you are looking for and of some of its parents.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
-|Clean|If selected, delete the previous text to write a new one. By default, the text will be written on a new line.|True|
 |Text|Texto o variable que se vá a escribir en el atributo Text del objeto.|Text|
 |Result|Variable where the result is stored|result|
+|Clean|If selected, delete the previous text to write a new one. By default, the text will be written on a new line.|True|
+|Use only Idx|If this box is checked, the selector properties will be ignored and only the index or idx will be used to identify the element.|False|
 
 ### Send Keys
   
@@ -77,8 +85,9 @@ Enables you to write a string to the Text attribute of a specified UI element.
 | --- | --- | --- |
 |Selector|Use selector obtained in DesktopRecorder. This selector is a text property used to find a particular UI element when the activity is executed. It is actually a XML or JSON fragment specifying attributes of the GUI element you are looking for and of some of its parents.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
 |Text|The string or variable that is to be written to the Text attribute of a UI element.|Text|
-|Add delay|Check it if the application write slow|False|
 |Result|Variable where the result is stored|result|
+|Use only Idx|If this box is checked, the selector properties will be ignored and only the index or idx will be used to identify the element.|False|
+|Add delay|Check it if the application write slow|False|
 
 ### ComboBox
   
@@ -87,6 +96,7 @@ Selects an item from a combo box or list box.
 | --- | --- | --- |
 |Selector|Use selector obtained in DesktopRecorder. This selector is a text property used to find a particular UI element when the activity is executed. It is actually a XML or JSON fragment specifying attributes of the GUI element you are looking for and of some of its parents.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
 |Item|Specifies the item to be selected from the combo or list box.|Item|
+|Use only Idx|If this box is checked, the selector properties will be ignored and only the index or idx will be used to identify the element.|False|
 |Result|Variable where the result is stored|result|
 
 ### Wheel
@@ -183,3 +193,28 @@ Returns the coordinates of the specified element. You can choose to move the mou
 |Move mouse to the position|If this checkbox is checked, the mouse will move to the center of the element before returning the position|True|
 |Result|Variable where the result is stored|result|
 
+### Advanced Window Control
+  
+Performs specific actions on the window
+|Parameters|Description|example|
+| --- | --- | --- |
+|Window Name|Use the window name|Calculator|
+|Action|Action to be performed on the window|Option|
+
+### Click by index
+  
+Clic on the specified index.
+|Parameters|Description|example|
+| --- | --- | --- |
+|Go to index|Use the index number where you will click|index|
+|Result|Variable where the result is stored|result|
+
+### Send keys via index
+  
+Send keys to a specific index.
+|Parameters|Description|example|
+| --- | --- | --- |
+|Send text|Send text to a specific index.|Text|
+|Send key|Send Key to a specific index|Key|
+|go to index|Use the index number where you will click|index|
+|Result|Variable where the result is stored|result|

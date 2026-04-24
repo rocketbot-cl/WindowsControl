@@ -1,6 +1,10 @@
+
+
+
+
 # MS Windows Controls
   
-Módulo para controlar aplicativos do MS Windows  
+Módulo para controlar aplicativos do MS Windows. Este módulo é um complemento do Gravador de Desktop.  
 
 *Read this in other languages: [English](README.md), [Português](README.pr.md), [Español](README.es.md)*
 
@@ -66,14 +70,19 @@ Retorna verdadeiro ou falso se o objeto estiver habilitado
 Arraste e solte um objeto das coordenadas ou do seletor de objetos, origem e destino
 
 18. Obter posição  
-Retorna as coordenadas do elemento especificado. Você pode escolher mover o mouse para a posição  
+Retorna as coordenadas do elemento especificado. Você pode escolher mover o mouse para a posição
+
+19. Controle Avançado de Janelas  
+Realiza ações específicas sobre a janela
+
+20. Clique para indexar  
+Clique no índice especificado.
+
+21. Enviar chaves via índice  
+Enviar chaves para um índice específico..  
 
 
 
-### Changes
-Thu Jun 11 13:14:37 2020  Merge branch master of https://github.com/rocketbot-cl/WindowsControl
-Tue Feb 25 12:31:14 2020  -
-Thu Jan 9 14:29:50 2020  Merge branch master of https://github.com/rocketbot-cl/WindowsControl
 
 ----
 ### OS

@@ -1,6 +1,10 @@
+
+
+
+
 # MS Windows Controls
   
-Módulo para controlar aplicativos do MS Windows  
+Módulo para controlar aplicativos do MS Windows. Este módulo é um complemento do Gravador de Desktop.  
 
 *Read this in other languages: [English](Manual_WindowsControl.md), [Português](Manual_WindowsControl.pr.md), [Español](Manual_WindowsControl.es.md)*
   
@@ -30,6 +34,7 @@ Tira uma captura de tela do elemento e salva no diretório especificado.
 | --- | --- | --- |
 |Selector|Use o seletor obtido no DesktopRecorder. Este seletor é a propriedade de texto usada para localizar um elemento de UI específico quando a atividade é executada. Na verdade, é um fragmento XML ou JSON especificando atributos do elemento GUI que você está procurando e de alguns de seus pais.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
 |Caminho da captura|Selecione o nome e o local onde a captura de tela será salva.|C:/Users/Usuario/Desktop/Captura|
+|Usar apenas Idx|Se esta caixa estiver marcada, as propriedades do seletor serão ignoradas e apenas o índice ou idx será usado para identificar o elemento.|False|
 
 ### Click
   
@@ -39,8 +44,9 @@ Clica em um elemento UI especificado.
 |Selector|Use o seletor obtido no DesktopRecorder. Este seletor é a propriedade de texto usada para localizar um elemento de UI específico quando a atividade é executada. Na verdade, é um fragmento XML ou JSON especificando atributos do elemento GUI que você está procurando e de alguns de seus pais.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
 |Tipo de Click|Especifica o tipo de clique do mouse (simples, duplo, para cima, para baixo) usado ao simular o evento de clique. Por padrão, um único clique é selecionado.|CLICK_SIMPLE|
 |Botão do Mouse|O botão do mouse (esquerdo, direito, meio) usado para a ação de clique. Por padrão, o botão esquerdo do mouse está selecionado.|BTN_IZQUIERDO|
-|Simular Click|Se selecionado, simula o clique usando a tecnologia do aplicativo de destino. Este método de entrada é o mais rápido e funciona em segundo plano. Por padrão, esta caixa de seleção não está selecionada. O método padrão é o mais lento, não pode funcionar em segundo plano, mas é compatível com todos os aplicativos de desktop.|False|
 |Resultado|Variável onde o resultado será armazenado|resultado|
+|Usar apenas Idx|Se esta caixa estiver marcada, as propriedades do seletor serão ignoradas e apenas o índice ou idx será usado para identificar o elemento.|False|
+|Simular Click|Se selecionado, simula o clique usando a tecnologia do aplicativo de destino. Este método de entrada é o mais rápido e funciona em segundo plano. Por padrão, esta caixa de seleção não está selecionada. O método padrão é o mais lento, não pode funcionar em segundo plano, mas é compatível com todos os aplicativos de desktop.|False|
 
 ### Click relativo
   
@@ -50,6 +56,7 @@ Click com coordenadas relativas a um elemento UI especificado.
 |Selector|Use o seletor obtido no DesktopRecorder. Este seletor é a propriedade de texto usada para localizar um elemento de UI específico quando a atividade é executada. Na verdade, é um fragmento XML ou JSON especificando atributos do elemento GUI que você está procurando e de alguns de seus pais.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
 |Coordenada X|Coordenada X para onde o mouse se moverá em relação antes de clicar, a partir do local do seletor.|150|
 |Coordenada Y|Coordenada Y para onde o mouse se moverá em relação antes de clicar, a partir do local do seletor.|100|
+|Usar apenas Idx|Se esta caixa estiver marcada, as propriedades do seletor serão ignoradas e apenas o índice ou idx será usado para identificar o elemento.|False|
 
 ### Obter texto
   
@@ -58,6 +65,7 @@ Extrai um valor de texto de um elemento UI especificado.
 | --- | --- | --- |
 |Selector|Use o seletor obtido no DesktopRecorder. Este seletor é a propriedade de texto usada para localizar um elemento de UI específico quando a atividade é executada. Na verdade, é um fragmento XML ou JSON especificando atributos do elemento GUI que você está procurando e de alguns de seus pais.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
 |Resultado|Variável onde o resultado é armazenado|resultado|
+|Usar apenas Idx|Se esta caixa estiver marcada, as propriedades do seletor serão ignoradas e apenas o índice ou idx será usado para identificar o elemento.|False|
 
 ### Enviar Texto
   
@@ -65,9 +73,10 @@ Permite gravar uma string no atributo Text de um elemento de UI especificado.
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
 |Selector|Use o seletor obtido no DesktopRecorder. Este seletor é a propriedade de texto usada para localizar um elemento de UI específico quando a atividade é executada. Na verdade, é um fragmento XML ou JSON especificando atributos do elemento GUI que você está procurando e de alguns de seus pais.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
-|Limpar|Se selecionado, exclui o texto antigo para escrever um novo. Por padrão, o texto será escrito em uma nova linha.|True|
 |Texto|Texto o variable que se vá a escribir en el atributo Text del objeto.|Texto|
 |Resultado|Variável onde o resultado é armazenado|resultado|
+|Limpar|Se selecionado, exclui o texto antigo para escrever um novo. Por padrão, o texto será escrito em uma nova linha.|True|
+|Usar apenas Idx|Se esta caixa estiver marcada, as propriedades do seletor serão ignoradas e apenas o índice ou idx será usado para identificar o elemento.|False|
 
 ### Enviar Tecla
   
@@ -76,8 +85,9 @@ Permite gravar uma string no atributo Text de um elemento de UI especificado.
 | --- | --- | --- |
 |Selector|Use o seletor obtido no DesktopRecorder. Este seletor é a propriedade de texto usada para localizar um elemento de UI específico quando a atividade é executada. Na verdade, é um fragmento XML ou JSON especificando atributos do elemento GUI que você está procurando e de alguns de seus pais.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
 |Texto|Texto ou variável para gravar no atributo Text do objeto.|Texto|
-|Adicionar delay|Ative se o aplicativo digita lento|False|
 |Resultado|Variável onde o resultado é armazenado|resultado|
+|Usar apenas Idx|Se esta caixa estiver marcada, as propriedades do seletor serão ignoradas e apenas o índice ou idx será usado para identificar o elemento.|False|
+|Adicionar delay|Ative se o aplicativo digita lento|False|
 
 ### ComboBox
   
@@ -86,6 +96,7 @@ Selecione um item de um Seletor ou lista de itens.
 | --- | --- | --- |
 |Selector|Use o seletor obtido no DesktopRecorder. Este seletor é a propriedade de texto usada para localizar um elemento de UI específico quando a atividade é executada. Na verdade, é um fragmento XML ou JSON especificando atributos do elemento GUI que você está procurando e de alguns de seus pais.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
 |Item|Escreva o nome do item a ser selecionado dentro do Seletor ou Lista.|Item|
+|Usar apenas Idx|Se esta caixa estiver marcada, as propriedades do seletor serão ignoradas e apenas o índice ou idx será usado para identificar o elemento.|False|
 |Resultado|Variável onde o resultado é armazenado|resultado|
 
 ### Wheel
@@ -180,4 +191,30 @@ Retorna as coordenadas do elemento especificado. Você pode escolher mover o mou
 | --- | --- | --- |
 |Selector do origen|Use o seletor obtido no DesktopRecorder. Este seletor é a propriedade de texto usada para localizar um elemento de UI específico quando a atividade é executada. Na verdade, é um fragmento XML ou JSON especificando atributos do elemento GUI que você está procurando e de alguns de seus pais.|<wnd app='calc.exe' cls='CalcFrame' title='Calculadora' />|
 |Mover o mouse para a posição|Se esta caixa estiver marcada, o mouse se moverá para o centro do elemento antes de retornar a posição|True|
+|Resultado|Variável onde o resultado é armazenado|resultado|
+
+### Controle Avançado de Janelas
+  
+Realiza ações específicas sobre a janela
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Nome da Janela|Use o nome da janela|Calculadora|
+|Opção|Ação a ser realizada na janela|Opção|
+
+### Clique para indexar
+  
+Clique no índice especificado.
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Ir para o índice|Use o número do índice no local onde você clicará.|Índice|
+|Resultado|Variável onde o resultado é armazenado|resultado|
+
+### Enviar chaves via índice
+  
+Enviar chaves para um índice específico..
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Enviar mensagem de texto|Enviar texto para um índice específico.|Texto|
+|Enviar chave|Enviar chave para um índice específico|Chave|
+|Ir para o índice|Use o número do índice no local onde você clicará.|Índice|
 |Resultado|Variável onde o resultado é armazenado|resultado|
