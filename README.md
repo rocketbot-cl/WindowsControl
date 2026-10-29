@@ -1,6 +1,10 @@
+
+
+
+
 # MS Windows Controls
   
-Module to control MS Windows applications  
+Module to control MS Windows applications. This module is a complement to the Desktop Recorder.  
 
 *Read this in other languages: [English](README.md), [Português](README.pr.md), [Español](README.es.md)*
 
@@ -66,13 +70,26 @@ Return True or False if object is enabled
 Drag and drop an object from coordinates or the object selector, both source and destination
 
 18. Get Position  
-Returns the coordinates of the specified element. You can choose to move the mouse to the position  
+Returns the coordinates of the specified element. You can choose to move the mouse to the position
+
+19. Advanced Window Control  
+Performs specific actions on the window
+
+20. Click by index  
+Clic on the specified index.
+
+21. Send keys via index  
+Send keys to a specific index.
+
+22. Click by OCR  
+Click on a specific text using OCR.  
 
 
 
 ### Changes
 Thu Jun 11 13:14:37 2020  Merge branch master of https://github.com/rocketbot-cl/WindowsControl
-Tue Feb 25 12:31:14 2020  -
+Tue Feb 25 12:31:14 2020
+  -
 Thu Jan 9 14:29:50 2020  Merge branch master of https://github.com/rocketbot-cl/WindowsControl
 
 ----
